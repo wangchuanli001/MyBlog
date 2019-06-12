@@ -1,0 +1,17 @@
+2019-06-11 15:29:02.330  INFO 12388 --- [restartedMain] xyz.wangcl.WangclApplication             : Starting WangclApplication on WIN10-2019 with PID 12388 (D:\Develop\github\wangcl\target\classes started by Administrator in D:\Develop\github\wangcl)
+2019-06-11 15:29:02.335  INFO 12388 --- [restartedMain] xyz.wangcl.WangclApplication             : No active profile set, falling back to default profiles: default
+2019-06-11 15:29:02.702  INFO 12388 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-06-11 15:29:02.702  INFO 12388 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-06-11 15:29:06.138  INFO 12388 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10000 (http)
+2019-06-11 15:29:06.164  INFO 12388 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-11 15:29:06.166  INFO 12388 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-11 15:29:06.249  INFO 12388 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-11 15:29:06.249  INFO 12388 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3546 ms
+2019-06-11 15:29:06.487  INFO 12388 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-11 15:29:06.591  INFO 12388 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2019-06-11 15:29:06.657  INFO 12388 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-06-11 15:29:06.712  INFO 12388 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10000 (http) with context path ''
+2019-06-11 15:29:06.718  INFO 12388 --- [restartedMain] xyz.wangcl.WangclApplication             : Started WangclApplication in 5.91 seconds (JVM running for 7.207)
+2019-06-11 15:30:28.707  INFO 12388 --- [http-nio-10000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-11 15:30:28.707  INFO 12388 --- [http-nio-10000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-11 15:30:28.720  INFO 12388 --- [http-nio-10000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
