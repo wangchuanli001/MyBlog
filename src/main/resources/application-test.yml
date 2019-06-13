@@ -1,0 +1,71 @@
+#application-test.yml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456789
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: -1
+      filters: stat,wall,log4j
+  redis:
+    host: 127.0.0.1
+    password: rediswangcl
+    database: 1
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 10Mb
+  messages:
+    encoding: UTF-8
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  mvc:
+    favicon:
+      enabled: false
+
+server:
+  port: 8088
+  tomcat:
+    uri-encoding: utf-8
+
+banner:
+  charset: UTF-8
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count
+logging:
+  file: ./logs/blog.log
+  path: ./logs/
+  pattern:
+    console: '%d{yyyy/MM/dd-HH:mm:ss} %-5level [%thread] %logger- %msg%n'
+    file: '%d{yyyy/MM/dd-HH:mm:ss} %-5level [%thread] %logger- %msg%n'
+
+
