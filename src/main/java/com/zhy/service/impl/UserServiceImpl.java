@@ -74,7 +74,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int findIdByUsername(String username) {
-        return userMapper.findIdByUsername(username);
+        int userid = userMapper.findIdByUsername(username);
+        if ("".equals(userid+"")){
+            return 1;
+        }else{
+            return userid;
+        }
+
     }
 
     @Override
