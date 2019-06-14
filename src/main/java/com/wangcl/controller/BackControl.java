@@ -50,7 +50,7 @@ public class BackControl {
      */
     @GetMapping("/mylove")
     public String myLove(){
-        return "mylove";
+        return "extendpage/mylove";
     }
 
     /**
@@ -67,7 +67,7 @@ public class BackControl {
     @GetMapping("/mystory")
     public String mystory(HttpServletRequest request){
         request.getSession().removeAttribute("lastUrl");
-        return "mystory";
+        return "extendpage/mystory";
     }
 
     /**
