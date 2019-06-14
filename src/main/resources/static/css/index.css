@@ -209,6 +209,19 @@
     text-align: center;
     margin-top: 5px;
 }
+/* 首页新增div样式 */
+.myIndexdiv{
+    margin-top: 20px;
+    height: 450px;
+    margin-left: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.myIndexdiv-words{
+    text-align: center;
+    margin-top: 0px;
+}
+/* 标签云样式 */
 .tag-cloud{
     padding-top: 9px;
 }
