@@ -69,14 +69,14 @@ public class GetPhoneCodeControl {
         System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
         System.setProperty("sun.net.client.defaultReadTimeout", "10000");
         //"***"分别填写自己的AccessKey ID和Secret
-        IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", "这里填OSS的key", "这里填OSS的secret");
+        IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAICP4ZXrlvhFbw", "om59Duu3ELkwsmHJZSa7Lbc698HolO");
         DefaultProfile.addEndpoint("cn-hangzhou", "cn-hangzhou", "Dysmsapi", "dysmsapi.aliyuncs.com");
         IAcsClient acsClient = new DefaultAcsClient(profile);
         SendSmsRequest request = new SendSmsRequest();
         //填写接收方的手机号码
         request.setPhoneNumbers(phoneNumber);
         //此处填写已申请的短信签名
-        request.setSignName("填你的短信签名");
+        request.setSignName("wangcl");
         //此处填写获得的短信模版CODE
         request.setTemplateCode(msgCode);
         //笔者的短信模版中有${code}, 因此此处对应填写验证码
