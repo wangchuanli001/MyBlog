@@ -17,4 +17,7 @@ public interface SiteOwner {
      */
     String SITE_OWNER_URL = "https://www.wangcl.xyz";
 
+    String SITE_KEYWORDS = "编程,java,pythong,技术";
+
+
 }

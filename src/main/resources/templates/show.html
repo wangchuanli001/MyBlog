@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${articleTitle}"></title>
+    <meta name="keywords" th:content="${articleTags}">
     <meta name="description" th:content="${articleTabloid}">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" th:content="${articleTags}">
 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/editormd/editormd.preview.min.css"/>
