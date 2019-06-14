@@ -375,7 +375,7 @@ public class ArticleServiceImpl implements ArticleService {
             articleJson.put("articleTitle",article.getArticleTitle());
             articleJson.put("articleCategories",article.getArticleCategories());
             articleJson.put("publishDate",article.getPublishDate());
-            String pageName = "article/" + article.getArticleId()+".html";
+            String pageName = "article/" + article.getArticleId();
             articleJson.put("visitorNum",visitorService.getNumByPageName(pageName));
 
             returnJsonArray.add(articleJson);
