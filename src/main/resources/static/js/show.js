@@ -41,9 +41,9 @@
             '<div class="show-weixin">' +
             '<p><i class="weiXinQuoteLeft am-icon-quote-left "></i></p><br>' +
             '<p class="show-weixin-pic">' +
-            '<img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/weixin.jpg">' +
+            '<img src="img/weixin_code.png">' +
             '</p>' +
-            '<p class="show-weixin-pic">欢迎关注我的微信公众号：zhyocean1314</p>' +
+            '<p class="show-weixin-pic">欢迎关注我的微信号：wangchuanli001</p>' +
             '<p><i class="weiXinQuoteRight am-icon-quote-right "></i></p>' +
             '</div>' +
             '<div>' +
