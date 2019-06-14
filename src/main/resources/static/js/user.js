@@ -541,7 +541,7 @@ function putInPrivateWord(data) {
     yesterdayContent.empty();
     if(data['result'].length == 0){
         yesterdayContent.append($('<div class="noYesterday">' +
-            '你的曾今我好像未曾参与耶' +
+            '你的曾经我好像未曾参与耶' +
             '</div>'));
     } else {
         var says = $('<div class="says"></div>');
