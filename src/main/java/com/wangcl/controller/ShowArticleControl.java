@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.security.Principal;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/5 16:21
  * Describe: 文章显示页面
  */

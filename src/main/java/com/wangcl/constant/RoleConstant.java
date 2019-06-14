@@ -2,7 +2,7 @@ package com.wangcl.constant;
 
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: Created in 14:18 2018/2/3
  * Describe: 权限
  */

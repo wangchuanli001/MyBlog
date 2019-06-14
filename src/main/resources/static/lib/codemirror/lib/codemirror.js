@@ -2013,7 +2013,7 @@
   // the new cursor position should be scrolled into view after
   // modifying the selection.
 
-  // If shift is held or the extend flag is set, extends a range to
+  // If shift is held or the extendpage flag is set, extends a range to
   // include a given position (and optionally a second position).
   // Otherwise, simply returns the range between the given positions.
   // Used for cursor motion and such.
@@ -3629,7 +3629,7 @@
     }
 
     var editorSize = display.wrapper.getBoundingClientRect();
-    // Used to ensure timeout re-tries don't fire when another extend
+    // Used to ensure timeout re-tries don't fire when another extendpage
     // happened in the meantime (clearTimeout isn't reliable -- at
     // least on Chrome, the timeouts still happen even when cleared,
     // if the clear happens after their scheduled firing time).

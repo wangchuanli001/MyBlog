@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/25 16:14
  * Describe: 超级管理页面
  */

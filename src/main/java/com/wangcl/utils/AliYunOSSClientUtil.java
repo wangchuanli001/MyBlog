@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.Date;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/10 17:45
  * Describe: 阿里云OSS连接
  */

@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/20 19:55
  * Describe: 时间工具
  */

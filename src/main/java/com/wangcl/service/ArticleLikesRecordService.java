@@ -4,7 +4,7 @@ import com.wangcl.model.ArticleLikesRecord;
 import net.sf.json.JSONObject;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/7 15:48
  * Describe: 文章点赞记录业务操作
  */

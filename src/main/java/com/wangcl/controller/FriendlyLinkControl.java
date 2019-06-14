@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2019/5/19 17:04
  * Describe: 友链页面
  */

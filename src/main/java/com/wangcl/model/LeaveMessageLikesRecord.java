@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/16 15:26
  * Describe: 留言中点赞
  */

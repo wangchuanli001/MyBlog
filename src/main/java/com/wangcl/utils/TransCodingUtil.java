@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/22 21:17
  * Describe: 转码工具
  */

@@ -73,7 +73,7 @@
 			var selection   = cm.getSelection();
 			var classPrefix = this.classPrefix;
 
-			$.extend(true, this.lang, langs[this.lang.name]); // l18n
+			$.extendpage(true, this.lang, langs[this.lang.name]); // l18n
 			this.setToolbar();
 
 			cm.focus();

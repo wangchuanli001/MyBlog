@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/8 9:24
  * Describe: 登录控制
  */

@@ -1,7 +1,7 @@
 package com.wangcl.exception;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/8/8 15:50
  * Describe:
  */

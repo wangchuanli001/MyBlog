@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/17 20:54
  * Describe: 分类sql
  */

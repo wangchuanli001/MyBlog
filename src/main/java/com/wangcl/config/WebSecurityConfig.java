@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/5 18:45
  * Describe: SpringSecurity配置
  */

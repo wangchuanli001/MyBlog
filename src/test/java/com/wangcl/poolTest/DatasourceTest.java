@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.sql.DataSource;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/9/9 14:05
  * Describe:
  */

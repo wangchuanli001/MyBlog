@@ -3,7 +3,7 @@ package com.wangcl.utils;
 import com.wangcl.model.Result;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2019/5/18 19:13
  * Describe: 返回统一格式封装工具
  */

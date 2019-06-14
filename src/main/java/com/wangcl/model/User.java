@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/4 11:49
  * Describe: 用户实体类
  */

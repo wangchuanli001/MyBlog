@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2019/5/6 13:52
  * Describe: String类型redis操作
  */

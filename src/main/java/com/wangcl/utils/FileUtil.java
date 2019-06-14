@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.Base64;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/21 11:29
  * Describe: 文件工具
  */

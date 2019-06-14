@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/16 21:27
  * Describe:
  */

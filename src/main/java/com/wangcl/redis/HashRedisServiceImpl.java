@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Field;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2019/5/12 16:10
  * Describe: Hash类型redis操作
  */

@@ -3,7 +3,7 @@ package com.wangcl.component;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/24 14:59
  * Describe: 字符串与字符串数组之间的转换
  */

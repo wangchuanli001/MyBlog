@@ -3,7 +3,7 @@ package com.wangcl.component;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/6/4 15:07
  * Describe: 手机验证码随机生成
  */

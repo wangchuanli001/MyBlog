@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/12 13:48
  * Describe: 评论点赞sql
  */

@@ -3,7 +3,7 @@ package com.wangcl.service;
 import com.wangcl.model.CommentLikesRecord;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/12 13:47
  * Describe:评论点赞记录业务操作
  */

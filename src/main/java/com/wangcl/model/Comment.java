@@ -3,7 +3,7 @@ package com.wangcl.model;
 import lombok.Data;
 
 /**
- * @author: zhangocean
+ * @author: wangcl
  * @Date: 2018/7/5 22:37
  * Describe: 文章评论
  */
