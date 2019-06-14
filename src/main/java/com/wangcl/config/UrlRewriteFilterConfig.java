@@ -1,11 +1,16 @@
 package com.wangcl.config;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.tuckey.web.filters.urlrewrite.Conf;
@@ -20,15 +25,16 @@ public class UrlRewriteFilterConfig extends UrlRewriteFilter {
     @Value(URL_REWRITE)
     private Resource resource;
 
-    // Override the loadUrlRewriter method, and write your own implementation
-    protected void loadUrlRewriter(FilterConfig filterConfig) throws ServletException {
-        try {
-            // Create a UrlRewrite Conf object with the injected resource
-            Conf conf = new Conf(filterConfig.getServletContext(), resource.getInputStream(), resource.getFilename(),
-                    "@@traceability@@");
-            checkConf(conf);
-        } catch (IOException ex) {
-            throw new ServletException("Unable to load URL rewrite configuration file from " + URL_REWRITE, ex);
-        }
+    @Bean
+    public FilterRegistrationBean urlRewrite(){
+        UrlRewriteFilter rewriteFilter=new UrlRewriteFilter();
+        FilterRegistrationBean registration = new FilterRegistrationBean(rewriteFilter);
+        registration.setUrlPatterns(Arrays.asList("/*"));
+        Map initParam=new HashMap();
+        initParam.put("confPath","urlrewirte.xml");
+        initParam.put("infoLevel","INFO");
+        registration.setInitParameters(initParam);
+        return registration;
     }
+
 }

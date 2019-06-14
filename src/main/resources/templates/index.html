@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta name="keywords" content="博客,个人,学习,IT,生活,❤,程序猿,springboot,java,后端">
-    <meta name="description" content="❤，正宗97后，爱编程。喜欢旅行、摄影、爱生活。专注于Spring,SpringBoot等后端技术探索，以及MySql,Oracle数据库开发和SSM,SSH等后端流行框架学习。">
+    <meta name="description" content="❤，爱编程。喜欢旅行、摄影、爱生活。专注于Spring,SpringBoot等后端技术探索，以及MySql,Oracle数据库开发和SSM,SSH等后端流行框架学习。">
 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
@@ -144,27 +144,26 @@
     </div>
     <!--页面主体-->
     <div id="main" style="margin-top: 16px">
-
+        <!-- 首页广播轮播条 -->
         <div class="am-g">
             <div class="am-u-sm-12 am-u-lg-9">
                 <div class="radioBroadcast">
                     <i class="am-icon-volume-up" style="margin-left: 10px;color: #fbd602"></i>
                     <div class="roll">
                         <ul>
-                            <li>新增未读消息提醒，可在个人主页查看未读消息啦~~~</li>
-                            <li>即将脱离大学生活，不管怎样，总之努力就行了。</li>
+                            <li>不管怎样，总之努力就行了。</li>
                             <li>愿你有前进一寸的勇气，亦有后退一尺的从容。</li>
                             <li>告诉自己，明天，肯定会更好。</li>
-                            <li>有时候挺讨厌自己的，不会说话，太过善良，还没什么心眼。</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="am-g">
             <div class="am-u-sm-12 am-u-lg-3 am-hide-md-down">
+                <!--左边栏-->
                 <div id="left">
+                    <!-- 个人名片 -->
                     <div class="myCard">
                         <div class="am-g">
                             <div class="am-u-sm-5">
@@ -186,7 +185,7 @@
                             <div id="follow">
                                 <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">扫描二维码关注我</button>
                             </div>
-                            <!--左侧栏-->
+                            <!--左侧弹出栏-->
                             <div id="doc-oc-demo2" class="am-offcanvas">
                                 <div class="am-offcanvas-bar">
                                     <div class="am-offcanvas-content">
@@ -242,7 +241,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!--最新评论栏目 -->
                     <div class="new-comment">
                         <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
                             <div class="am-list-news-hd am-cf">
@@ -272,7 +271,7 @@
 
                         </div>
                     </div>
-
+                    <!--最新留言栏目 -->
                     <div class="new-leaveWord">
                         <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
                             <div class="am-list-news-hd am-cf">
@@ -304,6 +303,7 @@
                     </div>
                 </div>
             </div>
+            <!--主体文章展示区 10条记录-->
             <div class="showArticle am-u-sm-12 am-u-lg-6">
                 <div class="articles">
                     <div class="center">
@@ -505,12 +505,13 @@
                 </div>
             </div>
             <div class="am-u-sm-12 am-u-lg-3">
+                <!--右边栏-->
                 <div id="right">
-
-                    <h3 class="widget-title">公告</h3>
+                    <!--公告栏-->
                     <div class="widget">
                         <div class="bg-danger">
                             <div class="zhy-info">
+                                <h3 class="widget-title">公告</h3>
                                 <i class="am-icon-quote-left" style="float: left"></i><br>
                                 <div class="zhy-info-day">
                                     <p>恰到好处的喜欢最舒服</p>
@@ -528,53 +529,54 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 右侧小栏目01 -->
                     <div class="myStory" >
                         <div class="bg-myStory">
                             <div><a class="bg-myStory-a" href="/mystory">我的故事</a></div>
                         </div>
                         <div class="myStory-words">一盆小花，一杯清茶</div>
                     </div>
+                    <!-- 右侧小栏目02 -->
                     <div class="myStory" >
                         <div class="bg-myGirl">
                             <div><a class="bg-myGirl-a" href="/mylove" target="_blank">我的女孩</a></div>
                         </div>
                         <div class="myStory-words">我的女孩，你还在吗</div>
                     </div>
-                    <!--<div class="myStory" >-->
-                        <!--<div class="bg-myStory" style="background: url(img/index/ali.jpg) repeat">-->
-                            <!--<div style="font-size: 26px;text-align: center"><a href="/ali" style="text-decoration: none">999封情书</a></div>-->
-                        <!--</div>-->
-                        <!--<div class="myStory-ali" style="text-align: center">-->
-                            <!--其实，我一直都在你身后-->
-                            <!--<br>就差你一个回头-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <div class="myStory" >
+                        <div class="bg-myStory">
+                            <div style="font-size: 26px;text-align: center"><a href="/ali" style="text-decoration: none">999封情书</a></div>
+                        </div>
+                        <div class="myStory-ali" style="text-align: center">
+                            其实，我一直都在你身后
+                            <br>就差你一个回头
+                        </div>
+                    </div>
+                    <!-- 标签云展示 -->
                     <div class="tag-cloud">
                         <h3 class="widget-title">标签云</h3>
                         <div class="widget-tag-cloud">
                             <span>暂无标签</span>
                         </div>
                     </div>
-
+                    <!-- 右侧网页信息展示 -->
                     <div class="site-info am-hide-sm-only">
                         <h5 class="site-title">
                             <i class="am-icon-info site-icon"></i>
                             <strong style="margin-left: 15px">网站信息</strong>
                         </h5>
                         <ul class="site-default" style="height: 200px">
-
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>
         <div class="clear"></div>
     </div>
     <!--引入共有底部-->
-    <div th:replace="footer :: footer"></div>
+    <div th:replace="common/footer :: footer"></div>
     <!--消息盒子+反馈-->
-    <div th:replace="other :: other"></div>
+    <div th:replace="common/other :: other"></div>
 </div>
 
 <script src="js/index.js"></script>

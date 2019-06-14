@@ -10,11 +10,11 @@
         <to>/col/$1/</to>
     </rule>-->
 
-    <!-- 文章详情页
+    <!-- 文章详情页-->
     <rule>
         <from>^/article/([\w\d])+\.html$</from>
-        <to type="forward">/article/$1</to>
-    </rule>-->
+        <to>/article/$1</to>
+    </rule>
 
     <!-- 静态网页
     <rule>

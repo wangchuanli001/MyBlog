@@ -47,6 +47,11 @@ public class IndexControl {
                                    @RequestParam("pageName") String pageName) throws UnsupportedEncodingException {
 
         int index = pageName.indexOf("/");
+        int dont = pageName.indexOf(".");
+        if (dont != -1){
+            String temp = pageName.split("\\.")[0];
+            pageName = temp;
+        }
         if(index == -1){
             pageName = "visitorVolume";
         }
