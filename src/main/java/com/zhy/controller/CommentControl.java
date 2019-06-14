@@ -84,7 +84,6 @@ public class CommentControl {
         comment.setAnswererId(userId);
         comment.setRespondentId(userService.findIdByUsername(SiteOwner.SITE_OWNER));
         comment.setCommentContent(JavaScriptCheck.javaScriptCheck(comment.getCommentContent()));
-
         commentService.insertComment(comment);
 
         JSONArray jsonArray = commentService.findCommentByArticleId(comment.getArticleId(),publisher);
