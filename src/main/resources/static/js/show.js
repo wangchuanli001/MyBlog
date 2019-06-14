@@ -490,7 +490,7 @@
             } else {
                 $('.content').html('');
                 var error = $('<div class="article"><div class="zhy-article-top"><div class="error">' +
-                    '<img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/register_success.jpg">' +
+                    '<img src="img/register_success.jpg">' +
                     '<p>没有找到这篇文章哦</p>' +
                     '<p>可能不小心被博主手残删掉了吧</p>' +
                     '<div class="row">' +
