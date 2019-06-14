@@ -28,7 +28,7 @@ public interface ArticleMapper {
     @Select("select * from article where articleId=#{articleId}")
     Article getArticleByArticleId(@Param("articleId") long articleId);
 
-    @Select("select articleTitle,articleTabloid from article where articleId=#{articleId}")
+    @Select("select articleTitle,articleTabloid,articleTags from article where articleId=#{articleId}")
     Article findArticleTitleByArticleId(@Param("articleId") long articleId);
 
     @Select("select articleId,articleTitle from article where articleId=#{articleId}")

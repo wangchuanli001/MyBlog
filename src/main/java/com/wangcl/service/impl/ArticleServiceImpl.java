@@ -171,7 +171,7 @@ public class ArticleServiceImpl implements ArticleService {
         if(articleInfo != null){
             articleMap.put("articleTitle", articleInfo.getArticleTitle());
             articleMap.put("articleTabloid", articleInfo.getArticleTabloid());
-
+            articleMap.put("articleTags", articleInfo.getArticleTags());
         }
         return articleMap;
     }

@@ -168,10 +168,16 @@ public class BackControl {
         if(articleMap.get("articleTitle") != null){
             model.addAttribute("articleTitle",articleMap.get("articleTitle"));
             String articleTabloid = articleMap.get("articleTabloid");
+            String articleTags = articleMap.get("articleTags");
             if(articleTabloid.length() <= 110){
                 model.addAttribute("articleTabloid",articleTabloid);
             } else {
                 model.addAttribute("articleTabloid",articleTabloid.substring(0,110));
+            }
+            if (articleTags.length() <= 6){
+                model.addAttribute("articleTags","博客,IT,❤,springboot,java,后端");
+            }else{
+                model.addAttribute("articleTags",articleTags);
             }
         }
         //将文章id存入响应头
