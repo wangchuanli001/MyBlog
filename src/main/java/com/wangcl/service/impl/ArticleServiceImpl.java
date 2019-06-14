@@ -55,7 +55,7 @@ public class ArticleServiceImpl implements ArticleService {
             }
             if("".equals(article.getArticleUrl())){
                 //保存文章的url
-                String url = SiteOwner.SITE_OWNER_URL + "/article/" + article.getArticleId();
+                String url = SiteOwner.SITE_OWNER_URL + "/article/" + article.getArticleId()+".html";
                 article.setArticleUrl(url);
             }
             Article endArticleId = articleMapper.findEndArticleId();
@@ -80,7 +80,7 @@ public class ArticleServiceImpl implements ArticleService {
             articleReturn.put("updateDate",article.getUpdateDate());
             articleReturn.put("author",article.getOriginalAuthor());
             //本博客中的URL
-            articleReturn.put("articleUrl","/article/" + article.getArticleId());
+            articleReturn.put("articleUrl","/article/" + article.getArticleId()+".html");
             return articleReturn;
         } catch (Exception e){
             articleReturn.put("status",500);
@@ -95,7 +95,7 @@ public class ArticleServiceImpl implements ArticleService {
         Article a = articleMapper.getArticleUrlById(article.getId());
         if("原创".equals(article.getArticleType())){
             article.setOriginalAuthor(article.getAuthor());
-            String url = SiteOwner.SITE_OWNER_URL + "/article/" + a.getArticleId();
+            String url = SiteOwner.SITE_OWNER_URL + "/article/" + a.getArticleId()+".html";
             article.setArticleUrl(url);
         }
         articleMapper.updateArticleById(article);
@@ -105,7 +105,7 @@ public class ArticleServiceImpl implements ArticleService {
         articleReturn.put("updateDate",article.getUpdateDate());
         articleReturn.put("author",article.getOriginalAuthor());
         //本博客中的URL
-        articleReturn.put("articleUrl","/article/" + a.getArticleId());
+        articleReturn.put("articleUrl","/article/" + a.getArticleId()+".html");
         return articleReturn;
     }
 
@@ -142,7 +142,7 @@ public class ArticleServiceImpl implements ArticleService {
             if(lastArticle != null){
                 jsonObject.put("lastStatus","200");
                 jsonObject.put("lastArticleTitle",lastArticle.getArticleTitle());
-                jsonObject.put("lastArticleUrl","/article/" + lastArticle.getArticleId());
+                jsonObject.put("lastArticleUrl","/article/" + lastArticle.getArticleId()+".html");
             } else {
                 jsonObject.put("lastStatus","500");
                 jsonObject.put("lastInfo","无");
@@ -150,7 +150,7 @@ public class ArticleServiceImpl implements ArticleService {
             if(nextArticle != null){
                 jsonObject.put("nextStatus","200");
                 jsonObject.put("nextArticleTitle",nextArticle.getArticleTitle());
-                jsonObject.put("nextArticleUrl","/article/" + nextArticle.getArticleId());
+                jsonObject.put("nextArticleUrl","/article/" + nextArticle.getArticleId()+".html");
             } else {
                 jsonObject.put("nextStatus","500");
                 jsonObject.put("nextInfo","无");
@@ -171,6 +171,7 @@ public class ArticleServiceImpl implements ArticleService {
         if(articleInfo != null){
             articleMap.put("articleTitle", articleInfo.getArticleTitle());
             articleMap.put("articleTabloid", articleInfo.getArticleTabloid());
+
         }
         return articleMap;
     }
@@ -188,7 +189,7 @@ public class ArticleServiceImpl implements ArticleService {
 
         for(Article article : articles){
             map = new HashMap<>();
-            map.put("thisArticleUrl", "/article/" + article.getArticleId());
+            map.put("thisArticleUrl", "/article/" + article.getArticleId()+".html");
             map.put("articleTags",StringAndArray.stringToArray(article.getArticleTags()));
             map.put("articleTitle", article.getArticleTitle());
             map.put("articleType", article.getArticleType());
@@ -374,7 +375,7 @@ public class ArticleServiceImpl implements ArticleService {
             articleJson.put("articleTitle",article.getArticleTitle());
             articleJson.put("articleCategories",article.getArticleCategories());
             articleJson.put("publishDate",article.getPublishDate());
-            String pageName = "article/" + article.getArticleId();
+            String pageName = "article/" + article.getArticleId()+".html";
             articleJson.put("visitorNum",visitorService.getNumByPageName(pageName));
 
             returnJsonArray.add(articleJson);
