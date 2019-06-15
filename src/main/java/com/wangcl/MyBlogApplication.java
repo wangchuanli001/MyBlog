@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
- * @author zhyocean
+ * @author wangcl
  */
 @SpringBootApplication
 @EnableTransactionManagement

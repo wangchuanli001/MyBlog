@@ -37,7 +37,7 @@
     margin: 0 auto;
     max-width: 100%;
 }
-.zhy-info-words{
+.blog-me-info-words{
     text-indent: 2em;
     font-size: 15px;
     font-family: '微软雅黑', '宋体', sans-serif;
@@ -47,7 +47,7 @@ blockquote ul li{
     font-size: 15px;
     line-height: 25px;
 }
-.zhy-title-QRCode-word{
+.blog-title-QRCode-word{
     text-align: center;
     padding: 20px 0;
 }

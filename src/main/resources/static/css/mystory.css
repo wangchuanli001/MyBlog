@@ -1,7 +1,7 @@
 @media screen and (min-width: 768px) {
     /*设置左侧点击样式*/
 
-    .zhy-myPhoto{
+    .blog-myPhoto{
         position: absolute;
         top: 20%;
         left: 40%;
@@ -52,7 +52,7 @@
 @media screen and (max-width: 768px) {
     /*设置左侧点击样式*/
 
-    .zhy-myPhoto{
+    .blog-myPhoto{
         position: absolute;
         top: 130px;
         left: 70px;
