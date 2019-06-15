@@ -1,5 +1,6 @@
 package com.wangcl.controller;
 
+import com.wangcl.constant.SiteOwner;
 import com.wangcl.service.ArticleService;
 import com.wangcl.utils.TransCodingUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,12 @@ public class BackControl {
      * 跳转首页
      */
     @GetMapping("/")
-    public String index(HttpServletRequest request, HttpServletResponse response,
+    public String index(HttpServletRequest request, HttpServletResponse response,Model model,
                         @AuthenticationPrincipal Principal principal){
         String username = null;
+        model.addAttribute("common_title", SiteOwner.SITE_COMMON_TITLE);
+        model.addAttribute("common_keywords", SiteOwner.SITE_COMMON_KEYWORDS);
+        model.addAttribute("common_description", SiteOwner.SITE_COMMON_DESCRIPTION);
         try {
             username = principal.getName();
         } catch (NullPointerException e){

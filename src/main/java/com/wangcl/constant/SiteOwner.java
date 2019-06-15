@@ -17,7 +17,9 @@ public interface SiteOwner {
      */
     String SITE_OWNER_URL = "https://www.wangcl.xyz";
 
-    String SITE_KEYWORDS = "编程,java,pythong,技术";
+    String SITE_COMMON_TITLE = "❤❤  |  Mr.Wang's Blog";
+    String SITE_COMMON_KEYWORDS = "博客,个人,学习,IT,生活,王传礼,程序猿,springboot,java,后端";
+    String SITE_COMMON_DESCRIPTION = " 喜欢编程、旅行、摄影、爱生活。专注于Spring,SpringBoot等后端技术探索，以及MySql,Oracle数据库开发和SSM,SSH等后端流行框架学习。";
 
 
 }

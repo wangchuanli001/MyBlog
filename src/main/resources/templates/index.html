@@ -3,12 +3,12 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <title>❤❤</title>
+    <title th:text="${common_title}"></title>
+    <meta name="keywords" th:content="${common_keywords}">
+    <meta name="description" th:content="${common_description}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="博客,个人,学习,IT,生活,❤,程序猿,springboot,java,后端">
-    <meta name="description" content="❤，爱编程。喜欢旅行、摄影、爱生活。专注于Spring,SpringBoot等后端技术探索，以及MySql,Oracle数据库开发和SSM,SSH等后端流行框架学习。">
 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
     <div class="header">
         <div class="am-topbar" style="margin-bottom: 0">
             <h1 class="am-topbar-brand">
-                <a href="/" class="blogTitleName"><img src="img/photo.jpg" class="imgStyle">❤❤王传礼</a>
+                <a href="/" class="blogTitleName"><img src="img/photo.jpg" class="imgStyle">王传礼的个人博客</a>
             </h1>
             <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" style="background-color: #CCCCCC;border-color: white;border-radius: 6px" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
