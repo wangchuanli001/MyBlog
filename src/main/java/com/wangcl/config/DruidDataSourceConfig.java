@@ -75,7 +75,7 @@ public class DruidDataSourceConfig {
       servletRegistrationBean.addUrlMappings("/druid/*");
       Map<String, String> initParameters = new HashMap<String, String>();
       initParameters.put("loginUsername", "wangcl");
-      initParameters.put("loginPassword", "wangabc123");
+      initParameters.put("loginPassword", "druidwangcl");
       initParameters.put("resetEnable", "true");
         //下面是黑白名单，多个ip地址之间用逗号隔开
 //      initParameters.put("allow", "白名单ip");

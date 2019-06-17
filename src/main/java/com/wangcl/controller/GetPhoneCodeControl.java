@@ -45,11 +45,11 @@ public class GetPhoneCodeControl {
         String msgCode = "SMS_136394413";
         //注册的短信模板
         if(REGISTER.equals(sign)){
-            msgCode = "SMS_136394413";
+            msgCode = "SMS_167961999";
         }
         //改密码的短信模板
         else {
-            msgCode = "SMS_139982667";
+            msgCode = "SMS_167963731";
         }
 
         SendSmsResponse sendSmsResponse = null;
@@ -76,7 +76,7 @@ public class GetPhoneCodeControl {
         //填写接收方的手机号码
         request.setPhoneNumbers(phoneNumber);
         //此处填写已申请的短信签名
-        request.setSignName("wangcl");
+        request.setSignName("程序猿blog");
         //此处填写获得的短信模版CODE
         request.setTemplateCode(msgCode);
         //笔者的短信模版中有${code}, 因此此处对应填写验证码
