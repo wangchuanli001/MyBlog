@@ -159,6 +159,7 @@ public class IndexControl {
         String lineSeparator = System.getProperty("line.separator", "\n");
         writer.append("User-agent: *").append(lineSeparator);
         writer.append("Disallow:").append("/user/*").append(lineSeparator);
+        writer.append("Disallow:").append("/admin/*").append(lineSeparator);
     }
 
 }
