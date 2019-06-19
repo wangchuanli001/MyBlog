@@ -70,6 +70,9 @@ public interface ArticleMapper {
     @Select("select id,articleId,originalAuthor,articleTitle,articleCategories,publishDate,articleUrl,updateDate from article")
     List<Article> getAllArticle();
 
+    @Select("SELECT a.id,a.articleTitle,a.articleUrl,a.articleId,v.visitorNum,a.author FROM article a,visitor v where RIGHT(v.pageName,10) = a.articleId ORDER BY visitorNum DESC")
+    List<Article> findFiveArticle();
+
     @Select("select id,articleId,originalAuthor,articleTitle,articleContent,articleCategories,articleTags,articleType,articleUrl from article where id=#{id}")
     Article findArticleById(int id);
 

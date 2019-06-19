@@ -131,6 +131,35 @@
 
 }
 
+    //填充阅读排行
+    function putInReadList(data) {
+        var readListWord = $('.read-list');
+        readListWord.empty();
+        var listNews = $('<div data-am-widget="list_read" class="am-list-news am-list-news-default" ></div>');
+        var readListTitle = $('<div class="am-list-news-hd am-cf">' +
+            '<a class="readList">' +
+            '<h2 style="color: #110101">阅读排行</h2>' +
+            '</a>' +
+            '</div>');
+        listNews.append(readListTitle);
+        var amListNewsBd = $('<div class="am-list-news-bd"></div>');
+        var ul = $('<ul class="fiveNewComments am-list"></ul>');
+        $.each(data['result'], function (index, obj) {
+            ul.append($('<li class="am-g am-list-item-dated">' +
+                '<a class="readListTitle" href="/article/' + obj['articleId'] + '.html' + '" title="' + obj['articleTitle'] + '">'
+                + obj['articleTitle'] + '</a>\n' +
+                '<span class="am-list-date">author:' + obj['author'] + '</span>' +
+                '</li>'));
+        });
+        amListNewsBd.append(ul);
+        listNews.append(amListNewsBd);
+        readListWord.append(listNews);
+        readListWord.append($('<div class="my-row" id="page-father">' +
+            '<div class="ReadListPagination">' +
+            '</div>' +
+            '</div>'));
+    }
+
     //填充最新评论
     function putInNewComment(data) {
         var newComment = $('.new-comment');
@@ -234,6 +263,36 @@
     });
 }
 
+    function ReadListAjax(currentPage) {
+        //阅读排行
+        $.ajax({
+            type: 'GET',
+            url: '/readList',
+            dataType: 'json',
+            data: {
+                rows:"5",
+                pageNum:currentPage
+            },
+            success: function (data) {
+                putInReadList(data);
+                //分页
+                $(".ReadListPagination").paging({
+                    rows:data['pageInfo']['pageSize'],//每页显示条数
+                    pageNum:data['pageInfo']['pageNum'],//当前所在页码
+                    pages:data['pageInfo']['pages'],//总页数
+                    total:data['pageInfo']['total'],//总记录数
+                    flag:0,
+                    callback:function(currentPage){
+                        ReadListAjax(currentPage);
+                    }
+                });
+
+            },
+            error: function () {
+            }
+        });
+    }
+
     function newCommentAjax(currentPage) {
     //最新评论
     $.ajax({
@@ -276,7 +335,6 @@
             },
             success: function (data) {
                 putInNewLeaveWord(data);
-
                 //分页
                 $(".newLeaveWordPagination").paging({
                     rows:data['pageInfo']['pageSize'],//每页显示条数
@@ -305,6 +363,7 @@
 
     newCommentAjax(1);
     newLeaveWordAjax(1);
+    ReadListAjax(1);
 
     //标签云
     $.ajax({

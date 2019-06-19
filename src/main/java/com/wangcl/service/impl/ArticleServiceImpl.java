@@ -55,6 +55,38 @@ public class ArticleServiceImpl implements ArticleService {
     private CommentLikesRecordService commentLikesRecordService;
 
     @Override
+    public JSONObject findFiveArticle(int rows, int pageNum) {
+        JSONObject returnJson = new JSONObject();
+        PageHelper.startPage(pageNum, rows);
+        List<Article> articles = articleMapper.findFiveArticle();
+        PageInfo<Article> pageInfo = new PageInfo<>(articles);
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject;
+
+        for(Article article : articles){
+            jsonObject = new JSONObject();
+            jsonObject.put("id",article.getId());
+            jsonObject.put("articleId",article.getArticleId());
+            jsonObject.put("articleTitle",article.getArticleTitle());
+            jsonObject.put("articleUrl",article.getArticleUrl());
+            jsonObject.put("author",article.getAuthor());
+//            jsonObject.put("visitorNum",comment.getCommentContent());
+            jsonArray.add(jsonObject);
+        }
+        returnJson.put("status",200);
+        returnJson.put("result",jsonArray);
+        JSONObject pageJson = new JSONObject();
+        pageJson.put("pageNum",pageInfo.getPageNum());
+        pageJson.put("pageSize",pageInfo.getPageSize());
+        pageJson.put("total",pageInfo.getTotal());
+        pageJson.put("pages",pageInfo.getPages());
+        pageJson.put("isFirstPage",pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage",pageInfo.isIsLastPage());
+        returnJson.put("pageInfo",pageJson);
+        return returnJson;
+    }
+
+    @Override
     public String createSiteMapXmlContent() {
 //        String baseUrl = String.format("http://%s", domain);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

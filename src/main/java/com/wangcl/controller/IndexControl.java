@@ -79,6 +79,15 @@ public class IndexControl {
 
     }
 
+    /*
+    * 获得阅读排行
+    * */
+    @GetMapping("/readList")
+    public JSONObject readList(@RequestParam("rows") String rows,
+                               @RequestParam("pageNum") String pageNum){
+        return articleService.findFiveArticle(Integer.parseInt(rows), Integer.parseInt(pageNum));
+    }
+
     /**
      * 获得最新评论
      */

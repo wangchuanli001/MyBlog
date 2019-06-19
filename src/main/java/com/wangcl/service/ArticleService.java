@@ -5,6 +5,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,20 +16,27 @@ import java.util.Map;
 public interface ArticleService {
 
     /*
-    * sitemap.xml文章信息获取
-    * */
+     * 首页5条阅读排行
+     * */
+    JSONObject findFiveArticle(int rows, int pageNum);
+
+    /*
+     * sitemap.xml文章信息获取
+     * */
     String createSiteMapXmlContent();
 
     /**
      * 保存文章
+     *
      * @param article 文章
-     * @return  status: 200--成功   500--失败
+     * @return status: 200--成功   500--失败
      */
 
     JSONObject insertArticle(Article article);
 
     /**
      * 修改文章
+     *
      * @return
      */
     @Transactional
@@ -36,6 +44,7 @@ public interface ArticleService {
 
     /**
      * 获得文章
+     *
      * @param articleId 文章id
      * @return
      */
@@ -43,6 +52,7 @@ public interface ArticleService {
 
     /**
      * 通过文章id获得文章名和文章摘要
+     *
      * @param id 文章id
      * @return 文章名
      */
@@ -50,7 +60,8 @@ public interface ArticleService {
 
     /**
      * 分页获得所有文章
-     * @param rows 一页显示文章数
+     *
+     * @param rows   一页显示文章数
      * @param pageNo 第几页
      * @return 该页所有文章
      */
@@ -58,6 +69,7 @@ public interface ArticleService {
 
     /**
      * 通过文章id更新它的上一篇或下一篇文章id
+     *
      * @param lastOrNext
      * @param lastOrNextArticleId
      * @param articleId
@@ -66,6 +78,7 @@ public interface ArticleService {
 
     /**
      * 文章点赞
+     *
      * @param articleId 文章id
      * @return 目前点赞数
      */
@@ -73,6 +86,7 @@ public interface ArticleService {
 
     /**
      * 通过标签分页获得文章部分信息
+     *
      * @param tag
      * @return
      */
@@ -80,17 +94,19 @@ public interface ArticleService {
 
     /**
      * 分页获得该分类下的所有文章
+     *
      * @param category 分类名
-     * @param rows 一页大小
-     * @param pageNum 页数
+     * @param rows     一页大小
+     * @param pageNum  页数
      * @return
      */
     JSONObject findArticleByCategory(String category, int rows, int pageNum);
 
     /**
      * 分页获得该归档日期下的所有文章
+     *
      * @param archive 归档日期
-     * @param rows 一页大小
+     * @param rows    一页大小
      * @param pageNum 页数
      * @return
      */
@@ -98,6 +114,7 @@ public interface ArticleService {
 
     /**
      * 获得草稿中的文章
+     *
      * @return
      */
     JSONObject getDraftArticle(Article article, String[] articleTags, int articleGrade);
@@ -114,6 +131,7 @@ public interface ArticleService {
 
     /**
      * 计算该分类文章的数目
+     *
      * @param category 分类名
      * @return 该分类下文章的数目
      */
@@ -121,6 +139,7 @@ public interface ArticleService {
 
     /**
      * 计算该归档日期文章的数目
+     *
      * @param archive 归档日期
      * @return 该归档日期下文章的数目
      */
@@ -128,12 +147,14 @@ public interface ArticleService {
 
     /**
      * 计算所有文章的数量
+     *
      * @return 所有文章的数量
      */
     int countArticle();
 
     /**
      * 通过id删除文章
+     *
      * @param id 文章id
      * @return 1--删除成功  0--删除失败
      */
