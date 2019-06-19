@@ -56,28 +56,8 @@ blockquote ul li{
     font-size: 32px;
     font-weight: 500;
 }
-/*初衷*/
-.blog-original-title-h1{
-    font-size: 30px;
-    font-weight: 400;
-    margin-bottom: 30px;
-}
-.blog-original-title img{
-    width: 300px;
-    margin: 0 auto;
-    max-width: 100%;
-}
-.blog-original-words{
-    text-indent: 2em;
-    font-size: 15px;
-    font-family: '微软雅黑', '宋体', sans-serif;
-    font-weight: 200;
-}
+/*初衷 delete*/
 
-.blog-erha{
-    text-align: center;
-    margin: 50px auto;
-}
 /* aboutme 心情 */
 .blog-you{
     text-align: center;
@@ -88,21 +68,8 @@ blockquote ul li{
     margin: 0 auto;
     max-width: 100%;
 }
-/*意见反馈*/
-.blog-opinion-title{
-    font-size: 30px;
-    font-weight: 400;
-}
-.blog-opinion img{
-    width: 300px;
-    margin: 0 auto;
-    max-width: 100%;
-}
-.blog-opinion-words{
-    font-size: 16px;
-    font-family: 微软雅黑;
-    font-weight: 500;
-}
+/*意见反馈 delete*/
+
 /*评论的头像*/
 .visitorCommentImg {
     padding-left: 7px;
