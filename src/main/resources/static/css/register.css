@@ -1,11 +1,11 @@
-.i_love_you {
+.login_register_header {
     text-align: center;
 }
-.i_love_you h1 {
+.login_register_header h1 {
     font-size: 200%;
     color: #333;
 }
-.i_love_you p {
+.login_register_header p {
     font-size: 14px;
 }
 #registerForm .input_warn{

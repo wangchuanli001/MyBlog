@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head >
+<head>
     <meta charset="UTF-8">
     <title th:text="${common_title}"></title>
     <meta name="keywords" th:content="${common_keywords}">
@@ -32,10 +32,14 @@
             <h1 class="am-topbar-brand">
                 <a href="/" class="blogTitleName"><img src="img/photo.jpg" class="imgStyle">王传礼</a>
             </h1>
-            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" style="background-color: #CCCCCC;border-color: white;border-radius: 6px" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+                    style="background-color: #CCCCCC;border-color: white;border-radius: 6px"
+                    data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+                    class="am-icon-bars"></span></button>
 
             <div id="personal-card" class="am-dropdown am-show-md-down" data-am-dropdown style="float: right">
-                <button id="personal-card-btn" class="am-btn am-btn-success am-dropdown-toggle" style="padding: 0"><img src="img/weixin_code.png"><span class="am-icon-caret-down"></span></button>
+                <button id="personal-card-btn" class="am-btn am-btn-success am-dropdown-toggle" style="padding: 0"><img
+                        src="img/weixin_code.png"><span class="am-icon-caret-down"></span></button>
                 <div class="am-dropdown-content">
                     <div class="personal-card-show" style="text-align: center">
                         <div class="personal-card-show-img">
@@ -45,47 +49,48 @@
                             <h4 style="font-weight: 500">❤</h4>
                         </div>
                         <div class="personal-card-show-words">
-                            <small style="font-size: 13px;color: #808080ad;">愿你的城市，有清风，有烈酒。</small>
+                            <small style="font-size: 13px;color: #808080ad;">你给世界一个什么姿态，世界将还你一个什么样的人生。</small>
                         </div>
                         <div class="personal-card-show-connection" style="margin-top: 10px">
                             <span style="color: #009688">微信：wangchuanli001</span><br>
                             <span style="color: #009688">QQ：978252321</span><br>
                         </div>
                         <div class="personal-card-show-attention_btn">
-                            <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn" data-am-offcanvas="{target: '#doc-oc-demo1'}" style="margin-top: 10px">扫描二维码关注我</button>
+                            <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn"
+                                    data-am-offcanvas="{target: '#doc-oc-demo1'}" style="margin-top: 10px">扫描二维码关注我
+                            </button>
                         </div>
                         <!--名片左侧栏-->
                         <div id="doc-oc-demo1" class="am-offcanvas">
                             <div class="am-offcanvas-bar">
                                 <div class="am-offcanvas-content">
                                     <p>
-                                        我不愿让你一个人 <br/>
-                                        承受这世界的残忍 <br/>
-                                        我不愿眼泪陪你到 永恒<br><br>
-
-                                        很抱歉你的过去我没来及参与<br>
-                                        那么<br>
-                                        余生我陪你度过<br>
-                                        可好
+                                        一路荆棘，<br/>
+                                        一路坎坷，<br/>
+                                        我不敢说自己很优秀，<br/>
+                                        但我心地善良。<br/>
+                                        认定的路会走到黑，<br/>
+                                        看对的事会执着追!<br/>
                                     </p>
 
                                     <div class="halving-line">
-                                        <i class="am-icon-hand-o-down " ></i>
-                                        <i class="am-icon-hand-o-down " ></i>
-                                        <i class="am-icon-hand-o-down " ></i>
+                                        <i class="am-icon-hand-o-down "></i>
+                                        <i class="am-icon-hand-o-down "></i>
+                                        <i class="am-icon-hand-o-down "></i>
                                     </div>
                                     <div class="halving-line-words">
                                         <p>想交个朋友吗<br>那就快扫下面吧</p>
                                     </div>
-                                    <hr data-am-widget="divider" style="width: 50%" class="am-divider am-divider-dashed" />
+                                    <hr data-am-widget="divider" style="width: 50%"
+                                        class="am-divider am-divider-dashed"/>
                                     <div class="blog-qq-weixin">
                                         <div class="blog-qq-box">
                                             <p>QQ</p>
-                                            <img src=""  class="qq_code am-img-thumbnail am-radius">
+                                            <img src="" class="qq_code am-img-thumbnail am-radius">
                                         </div>
                                         <div class="blog-weixin-box">
                                             <p>微信</p>
-                                            <img src=""  class="weixin_code am-img-thumbnail am-radius">
+                                            <img src="" class="weixin_code am-img-thumbnail am-radius">
                                         </div>
                                     </div>
                                 </div>
@@ -94,9 +99,15 @@
                         <div class="personal-card-show-ico">
                             <hr style="margin-top: 10px">
                             <div>
-                                <div class="am-u-sm-3"><a href="https://github.com/wangchuanli001" target="_blank" class="am-icon-github am-icon-sm" title="GitHub" style="color: #337ab7"></a></div>
-                                <div class="am-u-sm-3"><a href="https://gitee.com/wangchuanli001" class="am-icon-gg am-icon-sm" target="_blank" title="码云" style="color: #337ab7"></a></div>
-                                <div class="am-u-sm-3"><a href="https://weibo.com/wangchuanli001" target="_blank" class="am-icon-weibo am-icon-sm" title="微博" style="color: #337ab7"></a></div>
+                                <div class="am-u-sm-3"><a href="https://github.com/wangchuanli001" target="_blank"
+                                                          class="am-icon-github am-icon-sm" title="GitHub"
+                                                          style="color: #337ab7"></a></div>
+                                <div class="am-u-sm-3"><a href="https://gitee.com/wangchuanli001"
+                                                          class="am-icon-gg am-icon-sm" target="_blank" title="码云"
+                                                          style="color: #337ab7"></a></div>
+                                <div class="am-u-sm-3"><a href="https://weibo.com/wangchuanli001" target="_blank"
+                                                          class="am-icon-weibo am-icon-sm" title="微博"
+                                                          style="color: #337ab7"></a></div>
                             </div>
                         </div>
                     </div>
@@ -105,22 +116,32 @@
 
             <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
                 <ul class="am-nav am-nav-pills am-topbar-nav">
-                    <li><a class="top_bar" href="/" style="cursor: pointer;"><span class="am-icon-home"></span>&nbsp;首页</a></li>
-                    <li><a class="top_bar" href="/categories" style="cursor: pointer;"><span class="am-icon-th"></span>&nbsp;分类</a></li>
-                    <li><a class="top_bar" href="/archives" style="cursor: pointer;"><span class="am-icon-archive"></span>&nbsp;归档</a></li>
-                    <li><a class="top_bar" href="/tags" style="cursor: pointer;"><span class="am-icon-tags"></span>&nbsp;标签</a></li>
-                    <li><a class="top_bar" href="/update" style="cursor: pointer;"><span class="am-icon-calendar-plus-o"></span>&nbsp;更新</a></li>
-                    <li><a class="top_bar" href="/friendlylink" style="cursor: pointer;"><span class="am-icon-street-view"></span>&nbsp;友链</a></li>
-                    <li><a class="top_bar" href="/aboutme" style="cursor: pointer;"><span class="am-icon-user"></span>&nbsp;关于我</a> </li>
+                    <li><a class="top_bar" href="/" style="cursor: pointer;"><span class="am-icon-home"></span>&nbsp;首页</a>
+                    </li>
+                    <li><a class="top_bar" href="/categories" style="cursor: pointer;"><span class="am-icon-th"></span>&nbsp;分类</a>
+                    </li>
+                    <li><a class="top_bar" href="/archives" style="cursor: pointer;"><span
+                            class="am-icon-archive"></span>&nbsp;归档</a></li>
+                    <li><a class="top_bar" href="/tags" style="cursor: pointer;"><span class="am-icon-tags"></span>&nbsp;标签</a>
+                    </li>
+                    <li><a class="top_bar" href="/update" style="cursor: pointer;"><span
+                            class="am-icon-calendar-plus-o"></span>&nbsp;更新</a></li>
+                    <li><a class="top_bar" href="/friendlylink" style="cursor: pointer;"><span
+                            class="am-icon-street-view"></span>&nbsp;友链</a></li>
+                    <li><a class="top_bar" href="/aboutme" style="cursor: pointer;"><span class="am-icon-user"></span>&nbsp;关于我</a>
+                    </li>
                 </ul>
 
                 <div class="am-topbar-right" th:if="${#httpServletRequest.remoteUser}">
                     <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
-                        <button class="personalSpace am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle><span sec:authentication="name"></span> <span class="am-icon-caret-down"></span></button>
+                        <button class="personalSpace am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle"
+                                data-am-dropdown-toggle><span sec:authentication="name"></span> <span
+                                class="am-icon-caret-down"></span></button>
                         <ul class="am-dropdown-content">
                             <li><a href="/user" sec:authorize="hasRole('ROLE_USER')">个人主页</a></li>
                             <li><a href="/superadmin" sec:authorize="hasRole('ROLE_SUPERADMIN')">网站后台管理</a></li>
-                            <li><a href="/user" class="news">消息<span class="newsNum am-badge am-badge-danger"></span></a></li>
+                            <li><a href="/user" class="news">消息<span
+                                    class="newsNum am-badge am-badge-danger"></span></a></li>
                             <li><a class="feedbackClick">反馈</a></li>
                             <hr style="margin: 10px 0 5px 0;">
                             <li><a th:href="@{/logout}">退出登录</a></li>
@@ -128,13 +149,15 @@
                     </div>
                 </div>
                 <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
-                    <a href="/register" class="am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">注册</a>
+                    <a href="/register" class="am-btn am-btn-primary am-topbar-btn am-btn-sm"
+                       style="color: white">注册</a>
                 </div>
                 <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
-                    <a href="/login" class="loginBtn am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">登录</a>
+                    <a href="/login" class="loginBtn am-btn am-btn-primary am-topbar-btn am-btn-sm"
+                       style="color: white">登录</a>
                 </div>
                 <div class="am-topbar-right writing am-hide-md-down">
-                    <a  href="/editor" target="_blank" style="text-decoration: none">
+                    <a href="/editor" target="_blank" style="text-decoration: none">
                         <img class="am-circle" src="img/system/loading.gif" data-src="img/writing.png">
                         <span class="write-word">写博客</span>
                     </a>
@@ -155,6 +178,15 @@
                             <li>不管怎样，总之努力就行了。</li>
                             <li>愿你有前进一寸的勇气，亦有后退一尺的从容。</li>
                             <li>告诉自己，明天，肯定会更好。</li>
+                            <li>人这一辈子：不求钱财满屋，但求日子富足;不求感情无数，但求有人在乎。</li>
+                            <li>其实人生，就是一场路过：路过这个世界，走过这个岁月，生命的尽头，你还是一无所有。一切想开了，就不必困惑;一切看淡了，就不受折磨;一切参透了，就不会执着。</li>
+                            <li>不管昨天，今天，明天，能豁然开朗就是美好的一天。生活的最高境界：珍惜自己的过去，满意自己的现在，乐观自己的未来。</li>
+                            <li>感觉累的时候，也许你正处于人生的上坡路。坚持走下去，你就会发现到达了人生的另一个高度。</li>
+                            <li>能把在面前行走的机会抓住的人，十有八九都会成功。觉得自己做的到和不做的到，其实只在一念之间。要克服生活的焦虑和沮丧，得先学会做自己的主人。</li>
+                            <li>成熟，和年龄大小无关，和脾气好坏无关，成熟，不是写在脸上的表情，而是藏在心里的淡定。</li>
+                            <li>世界原本就不是属于你，因此你用不着抛弃，要抛弃的是一切的执着。万物皆为我所用，但非我所属。卑微的梦想持续燃烧，也能成就一段不凡的人生。</li>
+                            <li>前方无绝路，希望在转角。脚是大地上飞翔的翅膀。苦难是化了装的幸福。成功就是把复杂的问题简单化，然后狠狠去做。只有自己强大，才不会被别人践踏。</li>
+                            <li>为了向别人向世界证明自我而发奋拼搏，而一旦你真的取得了成绩，才会明白：人无须向别人证明什么，只要你能超越自我。</li>
                         </ul>
                     </div>
                 </div>
@@ -175,7 +207,7 @@
                             <div class="am-u-sm-7" style="padding: 0 20px 0 0;">
                                 <div class="img-words">
                                     <h3 id="name">❤</h3>
-                                    <small style="font-size: 13px;color: #808080ad">愿你的城市，有清风，有烈酒。</small>
+                                    <small style="font-size: 13px;color: #808080ad">你给世界一个什么姿态，世界将还你一个什么样的人生。</small>
                                 </div>
                             </div>
                         </div>
@@ -184,40 +216,41 @@
                             <span style="color: #009688">微信：wangchuanli001</span><br>
                             <span style="color: #009688">QQ：978252321</span><br>
                             <div id="follow">
-                                <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">扫描二维码关注我</button>
+                                <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn"
+                                        data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">扫描二维码关注我
+                                </button>
                             </div>
                             <!--左侧弹出栏-->
                             <div id="doc-oc-demo2" class="am-offcanvas">
                                 <div class="am-offcanvas-bar">
                                     <div class="am-offcanvas-content">
                                         <p>
-                                            我不愿让你一个人 <br/>
-                                            承受这世界的残忍 <br/>
-                                            我不愿眼泪陪你到 永恒<br><br>
-
-                                            很抱歉你的过去我没来及参与<br>
-                                            那么<br>
-                                            余生我陪你度过<br>
-                                            可好
+                                            一路荆棘，<br/>
+                                            一路坎坷，<br/>
+                                            我不敢说自己很优秀，<br/>
+                                            但我心地善良。<br/>
+                                            认定的路会走到黑，<br/>
+                                            看对的事会执着追!<br/>
                                         </p>
 
                                         <div class="halving-line">
-                                            <i class="am-icon-hand-o-down " ></i>
-                                            <i class="am-icon-hand-o-down " ></i>
-                                            <i class="am-icon-hand-o-down " ></i>
+                                            <i class="am-icon-hand-o-down "></i>
+                                            <i class="am-icon-hand-o-down "></i>
+                                            <i class="am-icon-hand-o-down "></i>
                                         </div>
                                         <div class="halving-line-words">
                                             <p>想交个朋友吗<br>那就快扫下面吧</p>
                                         </div>
-                                        <hr data-am-widget="divider" style="width: 50%" class="am-divider am-divider-dashed" />
+                                        <hr data-am-widget="divider" style="width: 50%"
+                                            class="am-divider am-divider-dashed"/>
                                         <div class="blog-qq-weixin">
                                             <div class="blog-qq-box">
                                                 <p>QQ</p>
-                                                <img src=""  class="qq_code am-img-thumbnail am-radius">
+                                                <img src="" class="qq_code am-img-thumbnail am-radius">
                                             </div>
                                             <div class="blog-weixin-box">
                                                 <p>微信</p>
-                                                <img src=""  class="weixin_code am-img-thumbnail am-radius">
+                                                <img src="" class="weixin_code am-img-thumbnail am-radius">
                                             </div>
                                         </div>
                                     </div>
@@ -228,73 +261,70 @@
                         <div class="icons-row">
                             <div class="icons">
                                 <div class="icon">
-                                    <a href="https://github.com/wangchuanli001" target="_blank" class="am-icon-github am-icon-md " title="GitHub" data-am-popover="{content: 'GitHub', trigger: 'hover focus'}"></a>
+                                    <a href="https://github.com/wangchuanli001" target="_blank"
+                                       class="am-icon-github am-icon-md " title="GitHub"
+                                       data-am-popover="{content: 'GitHub', trigger: 'hover focus'}"></a>
                                 </div>
                                 <div class="icon">
-                                    <a href="https://gitee.com/wangchuanli001" class="am-icon-gg am-icon-md" target="_blank" title="码云" data-am-popover="{content: '码云', trigger: 'hover focus'}"></a>
+                                    <a href="https://gitee.com/wangchuanli001" class="am-icon-gg am-icon-md"
+                                       target="_blank" title="码云"
+                                       data-am-popover="{content: '码云', trigger: 'hover focus'}"></a>
                                 </div>
                                 <div class="icon">
-                                    <a href="https://weibo.com/wangchuanli001" target="_blank" class="am-icon-weibo am-icon-md" title="微博" data-am-popover="{content: '微博', trigger: 'hover focus'}"></a>
+                                    <a href="https://weibo.com/wangchuanli001" target="_blank"
+                                       class="am-icon-weibo am-icon-md" title="微博"
+                                       data-am-popover="{content: '微博', trigger: 'hover focus'}"></a>
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="read-list">
+                        <div data-am-widget="list_read" class="am-list-news am-list-news-default">
+                            <div class="am-list-news-hd am-cf">
+                                <a class="readList"><h2>阅读排行</h2></a>
+                            </div>
+                            <div class="am-list-news-bd">
+                                <ul class="am-list">
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <!--最新评论栏目 -->
                     <div class="new-comment">
-                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default">
                             <div class="am-list-news-hd am-cf">
-                                <a class="newComments">
-                                    <h2>最新评论</h2>
-                                </a>
+                                <a class="newComments"><h2>最新评论</h2></a>
                             </div>
                             <div class="am-list-news-bd">
                                 <ul class="am-list">
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                     <!--最新留言栏目 -->
                     <div class="new-leaveWord">
-                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default">
                             <div class="am-list-news-hd am-cf">
-                                <a class="newLeaveWord">
-                                    <h2>最新留言</h2>
-                                </a>
+                                <a class="newLeaveWord"><h2>最新留言</h2></a>
                             </div>
                             <div class="am-list-news-bd">
                                 <ul class="am-list">
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
-                                    <li class="am-g am-list-item-dated" style="height: 62px">
-
-                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px"></li>
                                 </ul>
                             </div>
 
@@ -329,98 +359,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="center">
-                        <div class="empty">
-                            <header class="article-header">
-                                <h1 itemprop="name">
-                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
-                                </h1>
-                                <div class="article-meta row">
-                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-                                </div>
-                            </header>
-                            <div class="article-entry" style="height: 200px">
-                            </div>
-                            <div class="read-all">
-                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
-                            </div>
-                            <hr>
-                            <div class="article-tags">
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="empty">
-                            <header class="article-header">
-                                <h1 itemprop="name">
-                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
-                                </h1>
-                                <div class="article-meta row">
-                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-                                </div>
-                            </header>
-                            <div class="article-entry" style="height: 200px">
-                            </div>
-                            <div class="read-all">
-                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
-                            </div>
-                            <hr>
-                            <div class="article-tags">
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="empty">
-                            <header class="article-header">
-                                <h1 itemprop="name">
-                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
-                                </h1>
-                                <div class="article-meta row">
-                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-                                </div>
-                            </header>
-                            <div class="article-entry" style="height: 200px">
-                            </div>
-                            <div class="read-all">
-                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
-                            </div>
-                            <hr>
-                            <div class="article-tags">
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="empty">
-                            <header class="article-header">
-                                <h1 itemprop="name">
-                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
-                                </h1>
-                                <div class="article-meta row">
-                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-                                </div>
-                            </header>
-                            <div class="article-entry" style="height: 200px">
-                            </div>
-                            <div class="read-all">
-                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
-                            </div>
-                            <hr>
-                            <div class="article-tags">
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="my-row" id="page-father">
                     <div id="pagination">
@@ -435,8 +375,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="new-comment am-show-sm-only">
-                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
                         <div class="am-list-news-hd am-cf">
                             <a class="">
                                 <h2>最新评论</h2>
@@ -461,11 +402,10 @@
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
                 <div class="new-leaveWord am-show-sm-only">
-                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
                         <div class="am-list-news-hd am-cf">
                             <a class="">
                                 <h2>最新留言</h2>
@@ -514,7 +454,12 @@
                                 <hr/>
                                 <i class="am-icon-quote-left" style="float: left"></i><br>
                                 <div class="blog-me-info-day">
-                                    <p>Just Do it !</p>
+                                    <p>努力过后，才知道许多事情，<br/>
+                                        坚持坚持，就过来了。<br/>
+                                        保持一颗年轻的心，做个简单的人，享受阳光和温暖。<br/>
+                                        耐心点，坚强点;<br/>
+                                        总有一天，你承受过的疼痛会有助于你。<br/>
+                                    </p>
                                     <p style="text-align: right;padding-top: 10px">--- ❤</p>
                                 </div>
                                 <i class="am-icon-quote-right" style="float: right"></i>
@@ -526,28 +471,20 @@
                         </div>
                     </div>
                     <!-- 右侧小栏目01 -->
-                    <div class="myStory" >
+                    <div class="myStory">
                         <div class="bg-myStory">
                             <div><a class="bg-myStory-a" href="/mystory">我的故事</a></div>
                         </div>
                         <div class="myStory-words">一盆小花，一杯清茶</div>
                     </div>
-                    <!-- 右侧小栏目02 -->
+                    <!-- 右侧小栏目 -->
                     <!--<div class="myStory" >
                         <div class="bg-myGirl">
                             <div><a class="bg-myGirl-a" href="/mylove" target="_blank">我的女孩</a></div>
                         </div>
                         <div class="myStory-words">我的女孩，你还在吗</div>
                     </div>
-                    <div class="myStory" >
-                        <div class="bg-myStory">
-                            <div style="font-size: 26px;text-align: center"><a href="/ali" style="text-decoration: none">999封情书</a></div>
-                        </div>
-                        <div class="myStory-ali" style="text-align: center">
-                            其实，我一直都在你身后
-                            <br>就差你一个回头
-                        </div>
-                    </div>-->
+                    -->
                     <!-- 标签云展示 -->
                     <div class="tag-cloud">
                         <h3 class="widget-title">标签云</h3>
@@ -564,8 +501,9 @@
                         <ul class="site-default" style="height: 200px">
                         </ul>
                     </div>
-                    <div class="myIndexdiv" >
-                        <img class="img" href="https://chuangke.aliyun.com/invite?userCode=dpj8p3hl" alt="aliyun" src="img/system/loading.gif" data-src="img/ad/aliyun.jpg">
+                    <div class="myIndexdiv">
+                        <img class="img" href="https://chuangke.aliyun.com/invite?userCode=dpj8p3hl" alt="aliyun"
+                             src="img/system/loading.gif" data-src="img/ad/aliyun.jpg">
 
                     </div>
                 </div>

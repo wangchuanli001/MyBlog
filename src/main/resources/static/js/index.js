@@ -3,9 +3,9 @@
     var siteLastUpdateTime = '2019年06月02日13点';
 
     //网站开始时间
-    var siteBeginRunningTime = '2018-07-25 20:00:00';
+    var siteBeginRunningTime = '2019-01-01 20:00:00';
 
-    // 广告上下滚动
+    // 广播上下滚动
     function getStyle(obj,name){
         if(obj.currentStyle)
         {
