@@ -10,7 +10,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.security.Principal;
 
 /**
@@ -40,19 +43,20 @@ public class IndexControl {
 
     /**
      * 增加访客量
-     * @return  网站总访问量以及访客量
+     *
+     * @return 网站总访问量以及访客量
      */
     @GetMapping("/getVisitorNumByPageName")
     public Result getVisitorNumByPageName(HttpServletRequest request,
-                                   @RequestParam("pageName") String pageName) throws UnsupportedEncodingException {
+                                          @RequestParam("pageName") String pageName) throws UnsupportedEncodingException {
 
         int index = pageName.indexOf("/");
         int dont = pageName.indexOf(".");
-        if (dont != -1){
+        if (dont != -1) {
             String temp = pageName.split("\\.")[0];
             pageName = temp;
         }
-        if(index == -1){
+        if (index == -1) {
             pageName = "visitorVolume";
         }
         return visitorService.addVisitorNumByPageName(pageName, request);
@@ -60,12 +64,13 @@ public class IndexControl {
 
     /**
      * 分页获得当前页文章
-     * @param rows 一页的大小
+     *
+     * @param rows    一页的大小
      * @param pageNum 当前页
      */
     @PostMapping("/myArticles")
     public JSONArray myArticles(@RequestParam("rows") String rows,
-                                @RequestParam("pageNum") String pageNum){
+                                @RequestParam("pageNum") String pageNum) {
 
         return articleService.findAllArticles(rows, pageNum);
 
@@ -76,9 +81,9 @@ public class IndexControl {
      */
     @GetMapping("/newComment")
     public JSONObject newComment(@RequestParam("rows") String rows,
-                                @RequestParam("pageNum") String pageNum){
+                                 @RequestParam("pageNum") String pageNum) {
 
-        return commentService.findFiveNewComment(Integer.parseInt(rows),Integer.parseInt(pageNum));
+        return commentService.findFiveNewComment(Integer.parseInt(rows), Integer.parseInt(pageNum));
     }
 
     /**
@@ -86,15 +91,15 @@ public class IndexControl {
      */
     @GetMapping("/newLeaveWord")
     public JSONObject newLeaveWord(@RequestParam("rows") String rows,
-                                   @RequestParam("pageNum") String pageNum){
-        return leaveMessageService.findFiveNewComment(Integer.parseInt(rows),Integer.parseInt(pageNum));
+                                   @RequestParam("pageNum") String pageNum) {
+        return leaveMessageService.findFiveNewComment(Integer.parseInt(rows), Integer.parseInt(pageNum));
     }
 
     /**
      * 获得标签云
      */
     @GetMapping("/findTagsCloud")
-    public JSONObject findTagsCloud(){
+    public JSONObject findTagsCloud() {
         return tagService.findTagsCloud();
     }
 
@@ -102,7 +107,7 @@ public class IndexControl {
      * 获得右侧栏日志数、分类数、标签数
      */
     @GetMapping("/findArchivesCategoriesTagsNum")
-    public JSONObject findArchivesCategoriesTagsNum(){
+    public JSONObject findArchivesCategoriesTagsNum() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("tagsNum", tagService.countTagsNum());
         jsonObject.put("categoriesNum", categoryService.countCategoriesNum());
@@ -111,7 +116,7 @@ public class IndexControl {
     }
 
     @GetMapping("/getSiteInfo")
-    public JSONObject getSiteInfo(){
+    public JSONObject getSiteInfo() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("articleNum", articleService.countArticle());
         jsonObject.put("tagsNum", tagService.countTagsNum());
@@ -122,23 +127,38 @@ public class IndexControl {
 
     /**
      * 反馈
+     *
      * @param feedBack
      * @param principal
      * @return
      */
     @PostMapping("/submitFeedback")
     public JSONObject submitFeedback(FeedBack feedBack,
-                                     @AuthenticationPrincipal Principal principal){
+                                     @AuthenticationPrincipal Principal principal) {
         String username;
         try {
             username = principal.getName();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("status",403);
+            jsonObject.put("status", 403);
             return jsonObject;
         }
         feedBack.setPersonId(userService.findIdByUsername(username));
         return feedBackService.submitFeedback(feedBack);
 
     }
+
+    /**
+     * robots txt
+     *
+     * @return
+     */
+    @GetMapping("/robots.txt")
+    public void robotsTxt(HttpServletResponse response) throws IOException {
+        Writer writer = response.getWriter();
+        String lineSeparator = System.getProperty("line.separator", "\n");
+        writer.append("User-agent: *").append(lineSeparator);
+        writer.append("Disallow:").append("/user/*").append(lineSeparator);
+    }
+
 }
