@@ -14,6 +14,9 @@ import java.util.Map;
  */
 public interface ArticleService {
 
+    /*
+    * sitemap.xml文章信息获取
+    * */
     String createSiteMapXmlContent();
 
     /**
