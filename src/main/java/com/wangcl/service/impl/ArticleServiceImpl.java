@@ -259,6 +259,7 @@ public class ArticleServiceImpl implements ArticleService {
         Map<String, Object> map;
 
         for (Article article : articles) {
+            String pageName = "article/" + article.getArticleId();
             map = new HashMap<>();
             map.put("thisArticleUrl", "/article/" + article.getArticleId() + ".html");
             map.put("articleTags", StringAndArray.stringToArray(article.getArticleTags()));
@@ -269,6 +270,7 @@ public class ArticleServiceImpl implements ArticleService {
             map.put("articleCategories", article.getArticleCategories());
             map.put("articleTabloid", article.getArticleTabloid());
             map.put("likes", article.getLikes());
+            map.put("visitorNum",visitorService.getNumByPageName(pageName));
             newArticles.add(map);
         }
         JSONArray jsonArray = JSONArray.fromObject(newArticles);

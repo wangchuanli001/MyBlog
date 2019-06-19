@@ -105,7 +105,8 @@
                 '<div class="categories">' +
                 '<i class="am-icon-folder"><a class="linkColor" href="/categories?category=' + obj['articleCategories'] + '"> ' + obj['articleCategories'] + '</a></i>' +
                 '</div>' +
-                '</div>' +
+                '<div class="visitorNum">'+'<i class="am-icon-smile-o"> ' + obj['visitorNum'] + '</i>' +
+                '</div></div>' +
                 '</header>' +
                 '<div class="article-entry">' +
                 obj['articleTabloid'] +

@@ -10,7 +10,7 @@
         margin-right: 25px;
         transform: translateY(-40px);
     }
-    .articlePublishDate,.originalAuthor,.categories{
+    .articlePublishDate,.originalAuthor,.categories,.visitorNum{
         display: inline-block;
     }
     /*最新评论*/
@@ -62,6 +62,9 @@
         display: inline-block;
     }
     .categories{
+        margin: 5px 0 0 0;
+    }
+    .visitorNum{
         margin: 5px 0 0 0;
     }
     /*最新评论*/
