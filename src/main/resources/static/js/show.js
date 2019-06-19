@@ -22,7 +22,7 @@
             '<i class="am-icon-folder"> <a class="articleCategoryColor" href="/categories?category=' + data.articleCategories + '">' + data.articleCategories + '</a></i>' +
             '</div>' +
             '</div></article-top><div class="article-i-say">' +
-            '多年以后，愿你的城市，有清风，有烈酒，也有人是你的归途。<span class="article-i-say-me">--- ❤</span>' +
+            '你给世界一个什么姿态，世界将还你一个什么样的人生。<span class="article-i-say-me">--- ❤</span>' +
             '</div>');
         $('.blog-article-top').append(articleTop);
         $("#mdText").text(data.articleContent);
@@ -38,12 +38,12 @@
         var articleFooter = $('<div class="end-logo">' +
             '<i class="am-icon-btn am-success am-icon-lg">完</i>' +
             '</div>' +
-            '<div class="show-weixin">' +
+            '<div class="show-weixin" align="center">' +
             '<p><i class="weiXinQuoteLeft am-icon-quote-left "></i></p><br>' +
             '<p class="show-weixin-pic">' +
-            '<img src="img/weixin_code.png">' +
+            '<img src="img/weixin_code.png" width="120" height="120">' +
             '</p>' +
-            '<p class="show-weixin-pic">欢迎关注我的微信号：wangchuanli001</p>' +
+            '<p class="show-weixin-pic">欢迎关注：wangchuanli001</p>' +
             '<p><i class="weiXinQuoteRight am-icon-quote-right "></i></p>' +
             '</div>' +
             '<div>' +
