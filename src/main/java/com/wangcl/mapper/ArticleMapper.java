@@ -67,6 +67,9 @@ public interface ArticleMapper {
     @Select("select id,articleId,originalAuthor,articleTitle,articleCategories,publishDate from article order by id desc")
     List<Article> getArticleManagement();
 
+    @Select("select id,articleId,originalAuthor,articleTitle,articleCategories,publishDate,articleUrl,updateDate from article")
+    List<Article> getAllArticle();
+
     @Select("select id,articleId,originalAuthor,articleTitle,articleContent,articleCategories,articleTags,articleType,articleUrl from article where id=#{id}")
     Article findArticleById(int id);
 

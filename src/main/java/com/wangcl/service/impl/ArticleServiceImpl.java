@@ -2,6 +2,9 @@ package com.wangcl.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.redfin.sitemapgenerator.ChangeFreq;
+import com.redfin.sitemapgenerator.WebSitemapGenerator;
+import com.redfin.sitemapgenerator.WebSitemapUrl;
 import com.wangcl.component.StringAndArray;
 import com.wangcl.constant.SiteOwner;
 import com.wangcl.mapper.ArticleMapper;
@@ -13,8 +16,12 @@ import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +37,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     private Logger logger = LoggerFactory.getLogger(ArticleServiceImpl.class);
 
+//    @Value("${domain}")
+//    private String domain;
     @Autowired
     private ArticleMapper articleMapper;
     @Autowired
@@ -46,21 +55,51 @@ public class ArticleServiceImpl implements ArticleService {
     private CommentLikesRecordService commentLikesRecordService;
 
     @Override
+    public String createSiteMapXmlContent() {
+//        String baseUrl = String.format("http://%s", domain);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String baseUrl = SiteOwner.SITE_OWNER_URL;
+        WebSitemapGenerator wsg = null;
+        try {
+            wsg = new WebSitemapGenerator(baseUrl);
+            // 首页 url
+            WebSitemapUrl url = new WebSitemapUrl.Options(baseUrl + "/home")
+                    .lastMod(dateTimeFormatter.format(LocalDateTime.now())).priority(1.0).changeFreq(ChangeFreq.DAILY).build();
+            wsg.addUrl(url);
+
+            // 查询所有的文章
+            List<Article> articleList = articleMapper.getAllArticle();
+
+            // 动态添加 url
+            for (Article article : articleList) {
+                String updatetime = article.getUpdateDate();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                WebSitemapUrl tmpUrl = new WebSitemapUrl.Options(baseUrl + "/article/" + article.getArticleId() + ".html")
+                        .lastMod(sdf.parse(updatetime)).priority(0.9).changeFreq(ChangeFreq.DAILY).build();
+                wsg.addUrl(tmpUrl);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return String.join("", wsg.writeAsStrings());
+    }
+
+    @Override
     public JSONObject insertArticle(Article article) {
         JSONObject articleReturn = new JSONObject();
 
         try {
-            if("".equals(article.getOriginalAuthor())){
+            if ("".equals(article.getOriginalAuthor())) {
                 article.setOriginalAuthor(article.getAuthor());
             }
-            if("".equals(article.getArticleUrl())){
+            if ("".equals(article.getArticleUrl())) {
                 //保存文章的url
-                String url = SiteOwner.SITE_OWNER_URL + "/article/" + article.getArticleId()+".html";
+                String url = SiteOwner.SITE_OWNER_URL + "/article/" + article.getArticleId() + ".html";
                 article.setArticleUrl(url);
             }
             Article endArticleId = articleMapper.findEndArticleId();
             //设置文章的上一篇文章id
-            if(endArticleId != null){
+            if (endArticleId != null) {
                 article.setLastArticleId(endArticleId.getArticleId());
             }
             articleMapper.insertArticle(article);
@@ -71,19 +110,19 @@ public class ArticleServiceImpl implements ArticleService {
             //新文章加入访客量
             visitorService.insertVisitorArticlePage("article/" + article.getArticleId());
             //设置上一篇文章的下一篇文章id
-            if(endArticleId != null){
+            if (endArticleId != null) {
                 articleService.updateArticleLastOrNextId("nextArticleId", article.getArticleId(), endArticleId.getArticleId());
             }
 
-            articleReturn.put("status",200);
-            articleReturn.put("articleTitle",article.getArticleTitle());
-            articleReturn.put("updateDate",article.getUpdateDate());
-            articleReturn.put("author",article.getOriginalAuthor());
+            articleReturn.put("status", 200);
+            articleReturn.put("articleTitle", article.getArticleTitle());
+            articleReturn.put("updateDate", article.getUpdateDate());
+            articleReturn.put("author", article.getOriginalAuthor());
             //本博客中的URL
-            articleReturn.put("articleUrl","/article/" + article.getArticleId()+".html");
+            articleReturn.put("articleUrl", "/article/" + article.getArticleId() + ".html");
             return articleReturn;
-        } catch (Exception e){
-            articleReturn.put("status",500);
+        } catch (Exception e) {
+            articleReturn.put("status", 500);
             logger.error("用户 " + article.getAuthor() + " 保存文章 " + article.getArticleTitle() + " 失败");
             e.printStackTrace();
             return articleReturn;
@@ -93,19 +132,19 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public JSONObject updateArticleById(Article article) {
         Article a = articleMapper.getArticleUrlById(article.getId());
-        if("原创".equals(article.getArticleType())){
+        if ("原创".equals(article.getArticleType())) {
             article.setOriginalAuthor(article.getAuthor());
-            String url = SiteOwner.SITE_OWNER_URL + "/article/" + a.getArticleId()+".html";
+            String url = SiteOwner.SITE_OWNER_URL + "/article/" + a.getArticleId() + ".html";
             article.setArticleUrl(url);
         }
         articleMapper.updateArticleById(article);
         JSONObject articleReturn = new JSONObject();
-        articleReturn.put("status",200);
-        articleReturn.put("articleTitle",article.getArticleTitle());
-        articleReturn.put("updateDate",article.getUpdateDate());
-        articleReturn.put("author",article.getOriginalAuthor());
+        articleReturn.put("status", 200);
+        articleReturn.put("articleTitle", article.getArticleTitle());
+        articleReturn.put("updateDate", article.getUpdateDate());
+        articleReturn.put("author", article.getOriginalAuthor());
         //本博客中的URL
-        articleReturn.put("articleUrl","/article/" + a.getArticleId()+".html");
+        articleReturn.put("articleUrl", "/article/" + a.getArticleId() + ".html");
         return articleReturn;
     }
 
@@ -114,61 +153,61 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = articleMapper.getArticleByArticleId(articleId);
 
         JSONObject jsonObject = new JSONObject();
-        if(article != null){
+        if (article != null) {
             Article lastArticle = articleMapper.findArticleByArticleId(article.getLastArticleId());
             Article nextArticle = articleMapper.findArticleByArticleId(article.getNextArticleId());
-            jsonObject.put("status","200");
-            jsonObject.put("author",article.getAuthor());
-            jsonObject.put("articleId",articleId);
-            jsonObject.put("originalAuthor",article.getOriginalAuthor());
-            jsonObject.put("articleTitle",article.getArticleTitle());
-            jsonObject.put("publishDate",article.getPublishDate());
-            jsonObject.put("updateDate",article.getUpdateDate());
-            jsonObject.put("articleContent",article.getArticleContent());
+            jsonObject.put("status", "200");
+            jsonObject.put("author", article.getAuthor());
+            jsonObject.put("articleId", articleId);
+            jsonObject.put("originalAuthor", article.getOriginalAuthor());
+            jsonObject.put("articleTitle", article.getArticleTitle());
+            jsonObject.put("publishDate", article.getPublishDate());
+            jsonObject.put("updateDate", article.getUpdateDate());
+            jsonObject.put("articleContent", article.getArticleContent());
             jsonObject.put("articleTags", StringAndArray.stringToArray(article.getArticleTags()));
-            jsonObject.put("articleType",article.getArticleType());
-            jsonObject.put("articleCategories",article.getArticleCategories());
-            jsonObject.put("articleUrl",article.getArticleUrl());
-            jsonObject.put("likes",article.getLikes());
-            if(username == null){
-                jsonObject.put("isLiked",0);
-            }else {
-                if(articleLikesRecordService.isLiked(articleId,username)){
-                    jsonObject.put("isLiked",1);
-                }else {
-                    jsonObject.put("isLiked",0);
+            jsonObject.put("articleType", article.getArticleType());
+            jsonObject.put("articleCategories", article.getArticleCategories());
+            jsonObject.put("articleUrl", article.getArticleUrl());
+            jsonObject.put("likes", article.getLikes());
+            if (username == null) {
+                jsonObject.put("isLiked", 0);
+            } else {
+                if (articleLikesRecordService.isLiked(articleId, username)) {
+                    jsonObject.put("isLiked", 1);
+                } else {
+                    jsonObject.put("isLiked", 0);
                 }
             }
-            if(lastArticle != null){
-                jsonObject.put("lastStatus","200");
-                jsonObject.put("lastArticleTitle",lastArticle.getArticleTitle());
-                jsonObject.put("lastArticleUrl","/article/" + lastArticle.getArticleId()+".html");
+            if (lastArticle != null) {
+                jsonObject.put("lastStatus", "200");
+                jsonObject.put("lastArticleTitle", lastArticle.getArticleTitle());
+                jsonObject.put("lastArticleUrl", "/article/" + lastArticle.getArticleId() + ".html");
             } else {
-                jsonObject.put("lastStatus","500");
-                jsonObject.put("lastInfo","无");
+                jsonObject.put("lastStatus", "500");
+                jsonObject.put("lastInfo", "无");
             }
-            if(nextArticle != null){
-                jsonObject.put("nextStatus","200");
-                jsonObject.put("nextArticleTitle",nextArticle.getArticleTitle());
-                jsonObject.put("nextArticleUrl","/article/" + nextArticle.getArticleId()+".html");
+            if (nextArticle != null) {
+                jsonObject.put("nextStatus", "200");
+                jsonObject.put("nextArticleTitle", nextArticle.getArticleTitle());
+                jsonObject.put("nextArticleUrl", "/article/" + nextArticle.getArticleId() + ".html");
             } else {
-                jsonObject.put("nextStatus","500");
-                jsonObject.put("nextInfo","无");
+                jsonObject.put("nextStatus", "500");
+                jsonObject.put("nextInfo", "无");
             }
             return jsonObject;
         } else {
-            jsonObject.put("status","500");
-            jsonObject.put("errorInfo","获取文章信息失败");
+            jsonObject.put("status", "500");
+            jsonObject.put("errorInfo", "获取文章信息失败");
             logger.error("获取文章id " + articleId + " 失败");
             return jsonObject;
         }
     }
 
     @Override
-    public Map<String,String> findArticleTitleByArticleId(long articleId) {
+    public Map<String, String> findArticleTitleByArticleId(long articleId) {
         Article articleInfo = articleMapper.findArticleTitleByArticleId(articleId);
         Map<String, String> articleMap = new HashMap<>();
-        if(articleInfo != null){
+        if (articleInfo != null) {
             articleMap.put("articleTitle", articleInfo.getArticleTitle());
             articleMap.put("articleTabloid", articleInfo.getArticleTabloid());
             articleMap.put("articleTags", articleInfo.getArticleTags());
@@ -181,16 +220,16 @@ public class ArticleServiceImpl implements ArticleService {
         int pageNum = Integer.parseInt(pageNo);
         int pageSize = Integer.parseInt(rows);
 
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         List<Article> articles = articleMapper.findAllArticles();
         PageInfo<Article> pageInfo = new PageInfo<>(articles);
         List<Map<String, Object>> newArticles = new ArrayList<>();
         Map<String, Object> map;
 
-        for(Article article : articles){
+        for (Article article : articles) {
             map = new HashMap<>();
-            map.put("thisArticleUrl", "/article/" + article.getArticleId()+".html");
-            map.put("articleTags",StringAndArray.stringToArray(article.getArticleTags()));
+            map.put("thisArticleUrl", "/article/" + article.getArticleId() + ".html");
+            map.put("articleTags", StringAndArray.stringToArray(article.getArticleTags()));
             map.put("articleTitle", article.getArticleTitle());
             map.put("articleType", article.getArticleType());
             map.put("publishDate", article.getPublishDate());
@@ -202,12 +241,12 @@ public class ArticleServiceImpl implements ArticleService {
         }
         JSONArray jsonArray = JSONArray.fromObject(newArticles);
         Map<String, Object> thisPageInfo = new HashMap<>();
-        thisPageInfo.put("pageNum",pageInfo.getPageNum());
-        thisPageInfo.put("pageSize",pageInfo.getPageSize());
-        thisPageInfo.put("total",pageInfo.getTotal());
-        thisPageInfo.put("pages",pageInfo.getPages());
-        thisPageInfo.put("isFirstPage",pageInfo.isIsFirstPage());
-        thisPageInfo.put("isLastPage",pageInfo.isIsLastPage());
+        thisPageInfo.put("pageNum", pageInfo.getPageNum());
+        thisPageInfo.put("pageSize", pageInfo.getPageSize());
+        thisPageInfo.put("total", pageInfo.getTotal());
+        thisPageInfo.put("pages", pageInfo.getPages());
+        thisPageInfo.put("isFirstPage", pageInfo.isIsFirstPage());
+        thisPageInfo.put("isLastPage", pageInfo.isIsLastPage());
 
         jsonArray.add(thisPageInfo);
         return jsonArray;
@@ -215,10 +254,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void updateArticleLastOrNextId(String lastOrNext, long lastOrNextArticleId, long articleId) {
-        if("lastArticleId".equals(lastOrNext)){
+        if ("lastArticleId".equals(lastOrNext)) {
             articleMapper.updateArticleLastId(lastOrNextArticleId, articleId);
         }
-        if("nextArticleId".equals(lastOrNext)){
+        if ("nextArticleId".equals(lastOrNext)) {
             articleMapper.updateArticleNextId(lastOrNextArticleId, articleId);
         }
     }
@@ -239,10 +278,10 @@ public class ArticleServiceImpl implements ArticleService {
         JSONObject articleJson;
         JSONArray articleJsonArray = new JSONArray();
         //二次判断标签是否匹配
-        for(Article article : articles){
+        for (Article article : articles) {
             String[] tagsArray = StringAndArray.stringToArray(article.getArticleTags());
-            for(String str : tagsArray){
-                if(str.equals(tag)){
+            for (String str : tagsArray) {
+                if (str.equals(tag)) {
                     articleJson = new JSONObject();
                     articleJson.put("articleId", article.getArticleId());
                     articleJson.put("originalAuthor", article.getOriginalAuthor());
@@ -256,18 +295,18 @@ public class ArticleServiceImpl implements ArticleService {
         }
 
         JSONObject pageJson = new JSONObject();
-        pageJson.put("pageNum",pageInfo.getPageNum());
-        pageJson.put("pageSize",pageInfo.getPageSize());
-        pageJson.put("total",pageInfo.getTotal());
-        pageJson.put("pages",pageInfo.getPages());
-        pageJson.put("isFirstPage",pageInfo.isIsFirstPage());
-        pageJson.put("isLastPage",pageInfo.isIsLastPage());
+        pageJson.put("pageNum", pageInfo.getPageNum());
+        pageJson.put("pageSize", pageInfo.getPageSize());
+        pageJson.put("total", pageInfo.getTotal());
+        pageJson.put("pages", pageInfo.getPages());
+        pageJson.put("isFirstPage", pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage", pageInfo.isIsLastPage());
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("status",201);
-        jsonObject.put("result",articleJsonArray);
-        jsonObject.put("tag",tag);
-        jsonObject.put("pageInfo",pageJson);
+        jsonObject.put("status", 201);
+        jsonObject.put("result", articleJsonArray);
+        jsonObject.put("tag", tag);
+        jsonObject.put("pageInfo", pageJson);
         return jsonObject;
     }
 
@@ -278,7 +317,7 @@ public class ArticleServiceImpl implements ArticleService {
         PageInfo<Article> pageInfo;
         JSONArray articleJsonArray = new JSONArray();
         PageHelper.startPage(pageNum, rows);
-        if("".equals(category)){
+        if ("".equals(category)) {
             articles = articleMapper.findAllArticlesPartInfo();
             category = "全部分类";
         } else {
@@ -289,18 +328,18 @@ public class ArticleServiceImpl implements ArticleService {
         articleJsonArray = timeLineReturn(articleJsonArray, articles);
 
         JSONObject pageJson = new JSONObject();
-        pageJson.put("pageNum",pageInfo.getPageNum());
-        pageJson.put("pageSize",pageInfo.getPageSize());
-        pageJson.put("total",pageInfo.getTotal());
-        pageJson.put("pages",pageInfo.getPages());
-        pageJson.put("isFirstPage",pageInfo.isIsFirstPage());
-        pageJson.put("isLastPage",pageInfo.isIsLastPage());
+        pageJson.put("pageNum", pageInfo.getPageNum());
+        pageJson.put("pageSize", pageInfo.getPageSize());
+        pageJson.put("total", pageInfo.getTotal());
+        pageJson.put("pages", pageInfo.getPages());
+        pageJson.put("isFirstPage", pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage", pageInfo.isIsLastPage());
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("status",200);
-        jsonObject.put("result",articleJsonArray);
-        jsonObject.put("category",category);
-        jsonObject.put("pageInfo",pageJson);
+        jsonObject.put("status", 200);
+        jsonObject.put("result", articleJsonArray);
+        jsonObject.put("category", category);
+        jsonObject.put("pageInfo", pageJson);
 
         return jsonObject;
     }
@@ -312,11 +351,11 @@ public class ArticleServiceImpl implements ArticleService {
         JSONArray articleJsonArray = new JSONArray();
         TimeUtil timeUtil = new TimeUtil();
         String showMonth = "hide";
-        if(!"".equals(archive)){
+        if (!"".equals(archive)) {
             archive = timeUtil.timeYearToWhippletree(archive);
         }
         PageHelper.startPage(pageNum, rows);
-        if("".equals(archive)){
+        if ("".equals(archive)) {
             articles = articleMapper.findAllArticlesPartInfo();
         } else {
             articles = articleMapper.findArticleByArchive(archive);
@@ -327,17 +366,17 @@ public class ArticleServiceImpl implements ArticleService {
         articleJsonArray = timeLineReturn(articleJsonArray, articles);
 
         JSONObject pageJson = new JSONObject();
-        pageJson.put("pageNum",pageInfo.getPageNum());
-        pageJson.put("pageSize",pageInfo.getPageSize());
-        pageJson.put("total",pageInfo.getTotal());
-        pageJson.put("pages",pageInfo.getPages());
-        pageJson.put("isFirstPage",pageInfo.isIsFirstPage());
-        pageJson.put("isLastPage",pageInfo.isIsLastPage());
+        pageJson.put("pageNum", pageInfo.getPageNum());
+        pageJson.put("pageSize", pageInfo.getPageSize());
+        pageJson.put("total", pageInfo.getTotal());
+        pageJson.put("pages", pageInfo.getPages());
+        pageJson.put("isFirstPage", pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage", pageInfo.isIsLastPage());
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("status",200);
-        jsonObject.put("result",articleJsonArray);
-        jsonObject.put("pageInfo",pageJson);
+        jsonObject.put("status", 200);
+        jsonObject.put("result", articleJsonArray);
+        jsonObject.put("pageInfo", pageJson);
         jsonObject.put("articleNum", articleMapper.countArticle());
         jsonObject.put("showMonth", showMonth);
 
@@ -367,30 +406,30 @@ public class ArticleServiceImpl implements ArticleService {
         JSONArray returnJsonArray = new JSONArray();
         JSONObject returnJson = new JSONObject();
         JSONObject articleJson;
-        for(Article article : articles){
+        for (Article article : articles) {
             articleJson = new JSONObject();
-            articleJson.put("id",article.getId());
-            articleJson.put("articleId",article.getArticleId());
-            articleJson.put("originalAuthor",article.getOriginalAuthor());
-            articleJson.put("articleTitle",article.getArticleTitle());
-            articleJson.put("articleCategories",article.getArticleCategories());
-            articleJson.put("publishDate",article.getPublishDate());
+            articleJson.put("id", article.getId());
+            articleJson.put("articleId", article.getArticleId());
+            articleJson.put("originalAuthor", article.getOriginalAuthor());
+            articleJson.put("articleTitle", article.getArticleTitle());
+            articleJson.put("articleCategories", article.getArticleCategories());
+            articleJson.put("publishDate", article.getPublishDate());
             String pageName = "article/" + article.getArticleId();
-            articleJson.put("visitorNum",visitorService.getNumByPageName(pageName));
+            articleJson.put("visitorNum", visitorService.getNumByPageName(pageName));
 
             returnJsonArray.add(articleJson);
         }
-        returnJson.put("status",200);
-        returnJson.put("result",returnJsonArray);
+        returnJson.put("status", 200);
+        returnJson.put("result", returnJsonArray);
         JSONObject pageJson = new JSONObject();
-        pageJson.put("pageNum",pageInfo.getPageNum());
-        pageJson.put("pageSize",pageInfo.getPageSize());
-        pageJson.put("total",pageInfo.getTotal());
-        pageJson.put("pages",pageInfo.getPages());
-        pageJson.put("isFirstPage",pageInfo.isIsFirstPage());
-        pageJson.put("isLastPage",pageInfo.isIsLastPage());
+        pageJson.put("pageNum", pageInfo.getPageNum());
+        pageJson.put("pageSize", pageInfo.getPageSize());
+        pageJson.put("total", pageInfo.getTotal());
+        pageJson.put("pages", pageInfo.getPages());
+        pageJson.put("isFirstPage", pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage", pageInfo.isIsLastPage());
 
-        returnJson.put("pageInfo",pageJson);
+        returnJson.put("pageInfo", pageJson);
 
         return returnJson;
     }
@@ -428,7 +467,7 @@ public class ArticleServiceImpl implements ArticleService {
             commentService.deleteCommentByArticleId(deleteArticle.getArticleId());
             commentLikesRecordService.deleteCommentLikesRecordByArticleId(deleteArticle.getArticleId());
             articleLikesRecordService.deleteArticleLikesRecordByArticleId(deleteArticle.getArticleId());
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("删除文章失败，文章id=" + id);
             return 0;
         }
@@ -438,9 +477,9 @@ public class ArticleServiceImpl implements ArticleService {
     /**
      * 封装时间线中数据成JsonArray形式
      */
-    private JSONArray timeLineReturn(JSONArray articleJsonArray, List<Article> articles){
+    private JSONArray timeLineReturn(JSONArray articleJsonArray, List<Article> articles) {
         JSONObject articleJson;
-        for(Article article : articles){
+        for (Article article : articles) {
             String[] tagsArray = StringAndArray.stringToArray(article.getArticleTags());
             articleJson = new JSONObject();
             articleJson.put("articleId", article.getArticleId());

@@ -14,6 +14,8 @@ import java.util.Map;
  */
 public interface ArticleService {
 
+    String createSiteMapXmlContent();
+
     /**
      * 保存文章
      * @param article 文章

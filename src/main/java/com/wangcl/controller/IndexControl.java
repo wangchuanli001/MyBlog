@@ -1,11 +1,13 @@
 package com.wangcl.controller;
 
+import com.wangcl.constant.SiteOwner;
 import com.wangcl.model.FeedBack;
 import com.wangcl.model.Result;
 import com.wangcl.service.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +42,7 @@ public class IndexControl {
     UserService userService;
     @Autowired
     LeaveMessageService leaveMessageService;
+
 
     /**
      * 增加访客量
@@ -160,6 +163,20 @@ public class IndexControl {
         writer.append("User-agent: *").append(lineSeparator);
         writer.append("Disallow:").append("/user/*").append(lineSeparator);
         writer.append("Disallow:").append("/admin/*").append(lineSeparator);
+        writer.append("Sitemap:").append(SiteOwner.SITE_OWNER_URL+"/sitemap.xml").append(lineSeparator);
+    }
+
+
+    /**
+     * site map
+     *
+     * @return
+     */
+    @GetMapping("/sitemap.xml")
+    public void createSiteMapXml(HttpServletResponse response) throws IOException {
+        response.setContentType(MediaType.APPLICATION_XML_VALUE);
+        Writer writer = response.getWriter();
+        writer.append(articleService.createSiteMapXmlContent());
     }
 
 }
