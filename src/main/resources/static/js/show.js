@@ -38,10 +38,10 @@
         var articleFooter = $('<div class="end-logo">' +
             '<i class="am-icon-btn am-success am-icon-lg">完</i>' +
             '</div>' +
-            '<div class="show-weixin" align="center">' +
+            '<div class="show-weixin">' +
             '<p><i class="weiXinQuoteLeft am-icon-quote-left "></i></p><br>' +
             '<p class="show-weixin-pic">' +
-            '<img src="img/weixin_code.png" width="120" height="120">' +
+            '<img src="img/weixin_code.png">' +
             '</p>' +
             '<p class="show-weixin-pic">欢迎关注：wangchuanli001</p>' +
             '<p><i class="weiXinQuoteRight am-icon-quote-right "></i></p>' +
