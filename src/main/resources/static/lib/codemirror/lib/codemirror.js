@@ -748,7 +748,7 @@
       updateScrollbars(cm, barMeasure);
     }
 
-    update.signal(cm, "update", cm);
+    update.signal(cm, "templates.column.update", cm);
     if (cm.display.viewFrom != cm.display.reportedViewFrom || cm.display.viewTo != cm.display.reportedViewTo) {
       update.signal(cm, "viewportChange", cm, cm.display.viewFrom, cm.display.viewTo);
       cm.display.reportedViewFrom = cm.display.viewFrom; cm.display.reportedViewTo = cm.display.viewTo;

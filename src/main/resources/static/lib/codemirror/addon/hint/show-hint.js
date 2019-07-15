@@ -110,7 +110,7 @@
 
       function update() {
         if (finished) return;
-        CodeMirror.signal(data, "update");
+        CodeMirror.signal(data, "templates.column.update");
         retrieveHints(completion.options.hint, completion.cm, completion.options, finishUpdate);
       }
       function finishUpdate(data_) {

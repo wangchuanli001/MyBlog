@@ -609,7 +609,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     "scroll", "scrollbar", "se-resize", "searchfield",
     "searchfield-cancel-button", "searchfield-decoration",
     "searchfield-results-button", "searchfield-results-decoration",
-    "semi-condensed", "semi-expanded", "separate", "serif", "show", "sidama",
+    "semi-condensed", "semi-expanded", "separate", "serif", "templates.column.article.show", "sidama",
     "simp-chinese-formal", "simp-chinese-informal", "single",
     "skew", "skewX", "skewY", "skip-white-space", "slide", "slider-horizontal",
     "slider-vertical", "sliderthumb-horizontal", "sliderthumb-vertical", "slow",

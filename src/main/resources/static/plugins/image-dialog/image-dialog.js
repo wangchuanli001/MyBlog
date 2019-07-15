@@ -33,7 +33,7 @@
 
             var loading = function(show) {
                 var _loading = dialog.find("." + classPrefix + "dialog-mask");
-                _loading[(show) ? "show" : "hide"]();
+                _loading[(show) ? "templates.column.article.show" : "hide"]();
             };
 
             if (editor.find("." + dialogName).length < 1)

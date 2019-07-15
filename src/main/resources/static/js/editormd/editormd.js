@@ -2566,7 +2566,7 @@
                 toolbar.show();
             }
             
-            preview[(settings.watch) ? "show" : "hide"]();
+            preview[(settings.watch) ? "templates.column.article.show" : "hide"]();
             
             previewCloseBtn.hide().unbind(editormd.mouseOrTouch("click", "touchend"));
                 
@@ -4307,7 +4307,7 @@
 
         dialog.loading = function(show) {                        
             var loading = dialog.find("." + classPrefix + "dialog-mask");
-            loading[(show) ? "show" : "hide"]();
+            loading[(show) ? "templates.column.article.show" : "hide"]();
 
             return dialog;
         };

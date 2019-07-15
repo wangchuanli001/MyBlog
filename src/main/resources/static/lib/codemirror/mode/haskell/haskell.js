@@ -228,7 +228,7 @@ CodeMirror.defineMode("haskell", function(_config, modeConfig) {
       "readIO", "readList", "readLn", "readParen", "reads", "readsPrec",
       "realToFrac", "recip", "rem", "repeat", "replicate", "return", "reverse",
       "round", "scaleFloat", "scanl", "scanl1", "scanr", "scanr1", "seq",
-      "sequence", "sequence_", "show", "showChar", "showList", "showParen",
+      "sequence", "sequence_", "templates.column.article.show", "showChar", "showList", "showParen",
       "showString", "shows", "showsPrec", "significand", "signum", "sin",
       "sinh", "snd", "span", "splitAt", "sqrt", "subtract", "succ", "sum",
       "tail", "take", "takeWhile", "tan", "tanh", "toEnum", "toInteger",

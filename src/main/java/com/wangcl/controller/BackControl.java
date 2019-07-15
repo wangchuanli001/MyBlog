@@ -54,7 +54,7 @@ public class BackControl {
     @GetMapping("/login")
     public String login(Model model) {
         model = setPageAttr(model);
-        return "login";
+        return "column/user/login";
     }
 
     /**
@@ -74,7 +74,7 @@ public class BackControl {
     @GetMapping("/register")
     public String register(Model model) {
         model = setPageAttr(model);
-        return "register";
+        return "column/user/register";
     }
 
     /**
@@ -94,7 +94,7 @@ public class BackControl {
         } catch (Exception e) {
             System.out.println("归档请求error");
         }
-        return "archives";
+        return "column/archives";
     }
 
     /**
@@ -112,7 +112,7 @@ public class BackControl {
             response.setHeader("category", TransCodingUtil.stringToUnicode(category));
         } catch (Exception e) {
         }
-        return "categories";
+        return "column/categories";
     }
 
     /**
@@ -130,7 +130,7 @@ public class BackControl {
             response.setHeader("tag", TransCodingUtil.stringToUnicode(tag));
         } catch (Exception e) {
         }
-        return "tags";
+        return "column/tags";
     }
 
     /**
@@ -140,7 +140,7 @@ public class BackControl {
     public String aboutme(HttpServletRequest request, Model model) {
         model = setPageAttr(model);
         request.getSession().removeAttribute("lastUrl");
-        return "aboutme";
+        return "column/aboutme";
     }
 
     /**
@@ -150,7 +150,7 @@ public class BackControl {
     public String update(HttpServletRequest request, Model model) {
         model = setPageAttr(model);
         request.getSession().removeAttribute("lastUrl");
-        return "update";
+        return "column/update";
     }
 
     /**
@@ -160,7 +160,7 @@ public class BackControl {
     public String friendlylink(HttpServletRequest request, Model model) {
         model = setPageAttr(model);
         request.getSession().removeAttribute("lastUrl");
-        return "friendlylink";
+        return "column/friendlylink";
     }
 
 
@@ -171,7 +171,7 @@ public class BackControl {
     public String user(HttpServletRequest request, Model model) {
         model = setPageAttr(model);
         request.getSession().removeAttribute("lastUrl");
-        return "user";
+        return "column/user/user";
     }
 
     /**
@@ -184,7 +184,7 @@ public class BackControl {
         if (!"".equals(id)) {
             request.getSession().setAttribute("id", id);
         }
-        return "editor";
+        return "column/article/editor";
     }
 
     /**
@@ -217,7 +217,16 @@ public class BackControl {
         }
         //将文章id存入响应头
         response.setHeader("articleId", String.valueOf(articleId));
-        return "show";
+        return "column/article/show";
+    }
+
+    /**
+     * 跳转到超级管理员页
+     */
+    @GetMapping("/superadmin")
+    public String superadmin(HttpServletRequest request) {
+        request.getSession().removeAttribute("lastUrl");
+        return "column/admin/superadmin";
     }
 
     /* 公共设置页面head文件*/
@@ -262,13 +271,5 @@ public class BackControl {
         return "extendpage/ali";
     }
 
-    /**
-     * 跳转到超级管理员页
-     */
-    @GetMapping("/superadmin")
-    public String superadmin(HttpServletRequest request) {
-        request.getSession().removeAttribute("lastUrl");
-        return "superadmin";
-    }
 
 }
