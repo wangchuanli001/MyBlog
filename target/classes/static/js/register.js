@@ -88,7 +88,7 @@
                 },
                 success:function (data) {
                     if(parseInt(data) != 0){
-                        alert("手机验证码发送成功！"+data);
+                        alert("手机验证码发送成功,验证码："+data);
                         timeCount();
                     }
 
