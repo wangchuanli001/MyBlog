@@ -10,7 +10,7 @@ public interface SiteOwner {
     /**
      * 填写超级管理员的用户名
      */
-    String SITE_OWNER = "忘川";
+    String SITE_OWNER = "王传礼";
 
     /**
      * 填写网站域名或ip地址(最好是域名，如果你还没有域名填ip也行吧)
