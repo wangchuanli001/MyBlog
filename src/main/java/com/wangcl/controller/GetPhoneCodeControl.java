@@ -59,8 +59,8 @@ public class GetPhoneCodeControl {
             e.printStackTrace();
             return 0;
         }
-
-        return 1;
+        int returnValue = Integer.parseInt( trueMsgCode );
+        return returnValue;
     }
 
     public static SendSmsResponse sendSmsResponse(String phoneNumber, String code, String msgCode) throws ClientException {
